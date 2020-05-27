@@ -1,5 +1,3 @@
-
-let region = 'us';
 const host = 'api.blizzard.com';
 
 
@@ -32,7 +30,7 @@ const getToken =  async () => {
 
     };
 
-    const getUrl = () =>{
+    const getUrl = (region = 'us') =>{
       return `https://${region}.${host}`;
     }
 

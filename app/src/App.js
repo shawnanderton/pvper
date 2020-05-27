@@ -1,10 +1,9 @@
 import React, { Component, Suspense } from 'react';
 import 'bulma/css/bulma.css';
 import './styles.scss';
-import {Route, Switch } from 'react-router-dom';
-import { HeaderBar } from './components';
+import { Route, Switch } from 'react-router-dom';
+import { HeaderBar, RightSideBar } from './components';
 import Home from './Home/Home';
-
 
 class App extends Component {
   render() {
@@ -19,6 +18,7 @@ class App extends Component {
               </Switch>
             </Suspense>
           </main>
+          <RightSideBar />
         </div>
       </div>
     );

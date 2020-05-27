@@ -7,7 +7,7 @@ import createSagaMiddleware from 'redux-saga';
 import App from './App';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import app, { productSaga } from './store';
+import app, { blizzardSaga } from './store';
 
 // create and configure reduxer middleware ( saga is a middleware )
 const sagaMiddleware = createSagaMiddleware();
@@ -18,7 +18,7 @@ const store = createStore(
   composeEnhancers(applyMiddleware(sagaMiddleware))
 );
 
-sagaMiddleware.run(productSaga);
+sagaMiddleware.run(blizzardSaga);
 
 ReactDOM.render(
   <Provider store={store}>

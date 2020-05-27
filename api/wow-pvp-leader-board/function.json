@@ -5,8 +5,10 @@
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
-      "methods": ["put"],
-      "route": "products/{id}"
+      "methods": [
+        "get"
+      ],
+      "route": "leader-boards/{region}/{season}/{bracket}"
     },
     {
       "type": "http",

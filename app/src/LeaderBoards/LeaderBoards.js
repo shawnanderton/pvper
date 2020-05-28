@@ -19,13 +19,13 @@ function LeaderBoards({ history }) {
       <div className="tabs">
         <ul>
           <li className="is-active">
-           <a>2v2</a>
+           <a href="">2v2</a>
           </li>
           <li>
-            <a>3v3</a>
+            <a href="">3v3</a>
           </li>
           <li>
-            <a>RPG</a>
+            <a href="">RPG</a>
           </li>
         </ul>
       </div>

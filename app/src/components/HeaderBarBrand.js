@@ -4,7 +4,15 @@ import logo from '../logo.png';
 
 const HeaderBarBrand = () => (
   <div className="navbar-brand">
-   <img src={logo} alt="logo" />
+    <a class="navbar-item" href="../">
+    <img src={logo} alt="logo" />
+					</a>
+					<div class="navbar-burger burger" data-target="topNav">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+   
  
   </div>
 );

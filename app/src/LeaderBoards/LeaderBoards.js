@@ -9,7 +9,7 @@ function LeaderBoards({ history }) {
   const getLeaderBoard = useCallback(() => dispatch(loadLeaderBoardAction()), [
     dispatch,
   ]); // called within a useEffect()
-  const leaderBoard = useSelector((state) => state.leaderBoard.data.entries);
+  const leaderBoard = useSelector((state) => state.leaderBoard.data);
   useEffect(() => {
     getLeaderBoard();
   }, [getLeaderBoard]);
@@ -19,13 +19,13 @@ function LeaderBoards({ history }) {
       <div className="tabs">
         <ul>
           <li className="is-active">
-           2v2
+           <a>2v2</a>
           </li>
           <li>
-            3v3
+            <a>3v3</a>
           </li>
           <li>
-            RPG
+            <a>RPG</a>
           </li>
         </ul>
       </div>

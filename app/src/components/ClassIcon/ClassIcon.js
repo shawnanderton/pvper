@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import './class-icon.scss';
 
 function ClassIcon({ characterClass, size }) {
-  const iconClass = `icon-${characterClass.toLowerCase()}`;
+  const classSlug = characterClass.replace(/\s/g, '').toLowerCase();
+  const iconClass = `icon-${classSlug}`;
   const iconSize = `icon-size-${size}`;
 
   return (

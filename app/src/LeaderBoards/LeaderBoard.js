@@ -1,6 +1,6 @@
 import React from 'react';
-import ClassIcon from '../components/ClassIcon/ClassIcon';
-import ArenaProgress from '../components/ArenaProgress/ArenaProgress';
+import ArenaProgress from '../components/ArenaProgress';
+import CharacterCard  from '../components/CharacterCard';
 
 function LeaderBoard({ entries, history, errorMessage }) {
   return (
@@ -12,7 +12,7 @@ function LeaderBoard({ entries, history, errorMessage }) {
       <table className="table is-fullwidth">
         <thead>
           <tr>
-            <th className="has-text-centered rank">Rank</th>
+            <th className="has-text-centered">Rank</th>
             <th className="has-text-centered">Name</th>
             <th className="has-text-centered">wins/lost</th>
             <th className="has-text-centered">Rating</th>
@@ -20,38 +20,33 @@ function LeaderBoard({ entries, history, errorMessage }) {
         </thead>
         <tbody>
           {entries.map((entry, index) => (
-            <tr key={entry.rank}>
-              <td className="has-text-centered rank">{entry.rank}</td>
+            <tr key={entry['ARENA_2v2'].rank}>
+              <td className="rank">
+                {entry['ARENA_2v2'].rank}
+              </td>
               <td className="name">
                 <div className="columns">
-                  <ClassIcon
-                    characterClass={entry.character.character_class.name}
-                    size="64"
+                  <CharacterCard
+                    name={entry.name}
+                    title={entry.title}
+                    race={entry.race.name}
+                    realm={entry.realm.name}
+                    guild={entry.guild ? entry.guild.name : 'not in guild'}
+                    characterClass={entry.characterClass.name}
+                    itemLevel={entry.itemLevel}
+                    iconSize={'64'}
                   />
-
-                  <div className="column">
-                    <div>{entry.character.equipped_item_level} ILVL</div>
-          <span>{entry.character.race.name}{' '}</span>
-                    <span
-                      className={`color-${entry.character.character_class.name.toLowerCase()}`}
-                    >
-                      {entry.character.name}{' '}
-                    </span>
-
-                    <span>From {entry.character.realm.name} </span>
-                    <div> </div>
-                  </div>
                 </div>
               </td>
               <td className="arena-progress">
                 <ArenaProgress
-                  won={entry.season_match_statistics.won}
-                  lost={entry.season_match_statistics.lost}
-                  played={entry.season_match_statistics.played}
+                  won={entry['ARENA_2v2'].won}
+                  lost={entry['ARENA_2v2'].lost}
+                  played={entry['ARENA_2v2'].played}
                 />
               </td>
               <td className="rating is-capitalized has-text-weight-bold has-text-centered">
-                {entry.rating}
+                {entry['ARENA_2v2'].rating}
               </td>
             </tr>
           ))}

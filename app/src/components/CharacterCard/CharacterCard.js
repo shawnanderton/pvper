@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import CharacterDetail from './CharacterDetail';
 
 import ClassIcon from '../ClassIcon';
@@ -26,7 +25,5 @@ function CharacterCard({
     </>
   );
 }
-
-CharacterCard.propTypes = {};
 
 export default CharacterCard;

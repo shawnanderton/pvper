@@ -119,22 +119,9 @@ header {
   margin: 0 5px 5px 0;
 }
 
-.progress {
-  &::-webkit-progress-bar {
-    background-color: #b52e31;
-  }
-  &::-webkit-progress-value {
-    background-color: #b52e31;
-  }
-  &::-moz-progress-bar {
-    background-color: #b52e31;
-  }
-  border: none;
-}
 
-.icon {
-  background-repeat: no-repeat;
-}
+
+
 
 .color-deathknight {
   color: #c41f3b;
@@ -173,47 +160,7 @@ header {
   color: #c79c6e;
 }
 
-.icon-deathknight {
-  background-image: url(./images/classes/icon-deathknight.png);
-}
-.icon-demonhunter {
-  background-image: url(./images/classes/icon-demonhunter.png);
-}
-.icon-druid {
-  background-image: url(./images/classes/icon-druid.png);
-}
-.icon-hunter {
-  background-image: url(./images/classes/icon-hunter.png);
-}
-.icon-mage {
-  background-image: url(./images/classes/icon-mage.png);
-}
-.icon-monk {
-  background-image: url(./images/classes/icon-monk.png);
-}
-.icon-paladin {
-  background-image: url(./images/classes/icon-paladin.png);
-}
-.icon-priest {
-  background-image: url(./images/classes/icon-priest.png);
-}
-.icon-rogue {
-  background-image: url(./images/classes/icon-rogue.png);
-}
-.icon-shaman {
-  background-image: url(./images/classes/icon-shaman.png);
-}
-.icon-warlock {
-  background-image: url(./images/classes/icon-warlock.png);
-}
-.icon-warrior {
-  background-image: url(./images/classes/icon-warrior.png);
-}
-.icon-size-64 {
-  height: 64px;
-  width: 64px;
-  background-size: 64px;
-}
+
 
 table.table {
   box-shadow: none;
@@ -233,11 +180,16 @@ table.table {
       }
       &.name {
         padding: 15px;
-        width: 300px;
+        width: 350px;
+        padding-top: 20px;
+      }
+      &.arena-progress {
+        padding-top: 20px;
       }
       &.rating {
         width: 50px;
         vertical-align: middle;
+        padding-top: 20px;
       }
     }
 

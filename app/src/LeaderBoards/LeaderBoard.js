@@ -1,4 +1,6 @@
 import React from 'react';
+import ClassIcon from '../components/ClassIcon/ClassIcon';
+import ArenaProgress from '../components/ArenaProgress/ArenaProgress';
 
 function LeaderBoard({ entries, history, errorMessage }) {
   return (
@@ -22,36 +24,31 @@ function LeaderBoard({ entries, history, errorMessage }) {
               <td className="has-text-centered rank">{entry.rank}</td>
               <td className="name">
                 <div className="columns">
-                  <div
-                    className= {`colunm icon icon-size-64 icon-${entry.character.character_class.name.toLowerCase()}`}
-                  ></div>
+                  <ClassIcon
+                    characterClass={entry.character.character_class.name}
+                    size="64"
+                  />
 
                   <div className="column">
-                  Name: <span className={`color-${entry.character.character_class.name.toLowerCase()}`}> {entry.character.name}</span>
-                    <div>Realm: {entry.character.realm.name}</div>
+                    <div>{entry.character.equipped_item_level} ILVL</div>
+          <span>{entry.character.race.name}{' '}</span>
+                    <span
+                      className={`color-${entry.character.character_class.name.toLowerCase()}`}
+                    >
+                      {entry.character.name}{' '}
+                    </span>
+
+                    <span>From {entry.character.realm.name} </span>
+                    <div> </div>
                   </div>
                 </div>
               </td>
-              <td>
-                <div>
-                  <span className="tag is-success">
-                    {entry.season_match_statistics.won}
-                  </span>
-                  /
-                  <span className="tag is-danger">
-                    {entry.season_match_statistics.lost}
-                  </span>
-                  <span className="tag is-light is-pulled-right">
-                    {entry.season_match_statistics.played}
-                  </span>
-                </div>
-                <progress
-                  className="progress is-success"
-                  value={entry.season_match_statistics.won}
-                  max={entry.season_match_statistics.played}
-                >
-                  15%
-                </progress>
+              <td className="arena-progress">
+                <ArenaProgress
+                  won={entry.season_match_statistics.won}
+                  lost={entry.season_match_statistics.lost}
+                  played={entry.season_match_statistics.played}
+                />
               </td>
               <td className="rating is-capitalized has-text-weight-bold has-text-centered">
                 {entry.rating}

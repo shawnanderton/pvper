@@ -12,15 +12,12 @@ export function* loadingLeaderBoardAsync() {
     const leaderBoard = data;
 
     yield put({ type: LOAD_LEADER_BOARD_SUCCESS, payload: leaderBoard });
-    console.log('successssssssssssssssssssss', leaderBoard);
   } catch (err) {
-    console.log('Errorrrrrrrrrrrrrrrrrrrrrrrr', err);
     yield put({ type: LOAD_LEADER_BOARD_ERROR, payload: err.message });
   }
 }
 
 export function* watchLoadingLeaderBoardAsync() {
-  console.log('TEsssssssstsssss');
   yield takeEvery(LOAD_LEADER_BOARD, loadingLeaderBoardAsync);
 }
 

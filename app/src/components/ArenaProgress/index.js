@@ -1,1 +1,1 @@
-export { default } from './ArenaProgress';
+export { default } from './ArenaProgress'

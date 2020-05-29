@@ -1,0 +1,21 @@
+.tab {
+  > span {
+    align-items: center;
+    border-bottom-color: #dbdbdb;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    color: #4a4a4a;
+    display: flex;
+    justify-content: center;
+    margin-bottom: -1px;
+    padding: 0.5em 1em;
+    vertical-align: top;
+  }
+
+  &.active {
+    > span {
+      color: red;
+      border-bottom-color: red;
+    }
+  }
+}

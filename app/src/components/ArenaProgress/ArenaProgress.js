@@ -12,9 +12,9 @@ function ArenaProgress({ won, lost, played }) {
   };
   return (
     <>
-      <span className="tag is-success">{won}</span>/
+      <span className="tag is-success">{won}</span>{'/ '}
       <span className="tag is-danger">{lost}</span>
-      <span className="tag is-light is-pulled-right">{played}</span>
+      <span className="tag is-light">{played}</span>
       <div className="progress">
          <span className="percentage">{percentage}%</span>
         <div className="progress-bar" style={styles.progressBar}>

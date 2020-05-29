@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { loadLeaderBoardAction } from '../store';
 import LeaderBoard from './LeaderBoard';
+import Tabs from '../components/Tabs/Tabs';
+import Tab from '../components/Tabs/Tab';
 
 function LeaderBoards({ history }) {
   const dispatch = useDispatch();
@@ -16,13 +18,11 @@ function LeaderBoards({ history }) {
 
   return (
     <>
-      <div className="tabs">
-        <ul>
-          <li className="is-active">2v2</li>
-          <li>3v3</li>
-          <li>RPG</li>
-        </ul>
-      </div>
+      <Tabs>
+        <Tab active>2v2</Tab>
+        <Tab>3v3</Tab>
+        <Tab>RBG</Tab>
+      </Tabs>
       <div>
         <LeaderBoard entries={leaderBoard} />
       </div>

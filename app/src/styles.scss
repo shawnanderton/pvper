@@ -7,9 +7,6 @@ $link: $primary; // #00b3e6; // #ff4081;
 $shade-light: #fafafa;
 
 @import 'bulma/bulma.sass';
-.tag {
-  margin: 0 5px 5px 0;
-}
 
 .color-deathknight {
   color: #c41f3b;
@@ -72,24 +69,19 @@ table.table {
       }
       &.name {
         padding: 15px;
-        width: 650px;
-        padding-top: 20px;
+        width: 500px;
       }
       &.arena-progress {
-        min-width: 200px;
-        padding-top: 20px;
+        min-width: 100px;
       }
       &.rating {
         width: 50px;
         vertical-align: middle;
-        padding-top: 20px;
       }
     }
 
     color: white;
     background-color: #363636;
-    margin-bottom: 10px;
-    padding: 10px;
   }
 }
 

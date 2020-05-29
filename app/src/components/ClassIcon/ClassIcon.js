@@ -6,11 +6,16 @@ import './class-icon.scss';
 function ClassIcon({ characterClass, size }) {
   const classSlug = characterClass.replace(/\s/g, '').toLowerCase();
   const iconClass = `icon-${classSlug}`;
-  const iconSize = `icon-size-${size}`;
+
+  const styles= {
+    width: size,
+    height: size,
+    backgroundSize:size
+  }
 
   return (
     <div>
-      <div className={`icon ${iconClass} ${iconSize}`}></div>
+      <div className={`icon ${iconClass}`} style={styles}></div>
     </div>
   );
 }

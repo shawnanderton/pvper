@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './tabs.scss';
 
@@ -10,7 +9,5 @@ function Tabs({ children }) {
     </nav>
   );
 }
-
-Tabs.propTypes = {};
 
 export default Tabs;

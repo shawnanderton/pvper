@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './tab.scss';
 
 function Tab({ children, active }) {
@@ -10,6 +9,5 @@ function Tab({ children, active }) {
   );
 }
 
-Tab.propTypes = {};
 
 export default Tab;

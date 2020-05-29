@@ -2,15 +2,14 @@ import React from 'react';
 import HeaderBarBrand from './HeaderBarBrand';
 
 const HeaderBar = () => (
-  <header>
-    <nav
-      className="navbar has-background-dark is-dark"
-      role="navigation"
-      aria-label="main navigation"
-    >
+  <nav
+    className="navbar has-background-dark is-dark topNav"
+    role="navigation"
+    aria-label="main navigation"
+  >
+ 
       <HeaderBarBrand />
-    </nav>
-  </header>
+  </nav>
 );
 
 export default HeaderBar;

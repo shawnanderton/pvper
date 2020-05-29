@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
-import { selectedProductReducer, productsReducer } from './product.reducer';
+import { leaderBoardReducer } from './blizzard/blizzard.reducer';
 
-export * from './product.actions';
-export * from './product.reducer';
-export * from './product.saga';
+export * from './blizzard/blizzard.actions';
+export * from './blizzard/blizzard.reducer';
+export * from './blizzard/blizzard.saga';
+export * from './blizzard/blizzard.api';
 
 const store = combineReducers({
-  products: productsReducer,
-  selectedProduct: selectedProductReducer,
+  leaderBoard: leaderBoardReducer
 });
 
 export default store;

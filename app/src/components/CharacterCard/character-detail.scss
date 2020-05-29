@@ -1,0 +1,26 @@
+.character-detail {
+  .character-info-text {
+    span {
+      margin-right: 2px;
+    }
+  }
+
+  .character-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    
+  }
+  .character-title {
+    padding: 5px;
+    border-right: solid 1px white;
+    max-width: 200px;
+    min-width: 200px;
+  }
+
+  .character-info {
+    padding: 10px;
+
+  }
+
+  display: flex;
+}

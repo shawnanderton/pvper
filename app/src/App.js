@@ -1,26 +1,30 @@
 import React, { Component, Suspense } from 'react';
 import 'bulma/css/bulma.css';
 import './styles.scss';
-import {Route, Switch } from 'react-router-dom';
-import { HeaderBar } from './components';
+import { Route, Switch } from 'react-router-dom';
+import { HeaderBar, RightSideBar } from './components';
 import Home from './Home/Home';
-
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <>
         <HeaderBar />
-        <div className="section columns">
-          <main className="column">
-            <Suspense fallback={<div>Loading...</div>}>
-              <Switch>
-                <Route path="/" component={Home} />
-              </Switch>
-            </Suspense>
-          </main>
-        </div>
-      </div>
+        <section className="container is-fluid">
+          <div className="columns">
+            <main className="column is-10">
+              <Suspense fallback={<div>Loading...</div>}>
+                <Switch>
+                  <Route path="/" component={Home} />
+                </Switch>
+              </Suspense>
+            </main>
+            <aside className="column is-2">
+            <RightSideBar />
+            </aside>
+          </div>
+        </section>
+      </>
     );
   }
 }

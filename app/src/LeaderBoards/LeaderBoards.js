@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, onClick } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { loadLeaderBoardAction } from '../store';
@@ -18,15 +18,9 @@ function LeaderBoards({ history }) {
     <>
       <div className="tabs">
         <ul>
-          <li className="is-active">
-           <a href="">2v2</a>
-          </li>
-          <li>
-            <a href="">3v3</a>
-          </li>
-          <li>
-            <a href="">RPG</a>
-          </li>
+          <li className="is-active">2v2</li>
+          <li>3v3</li>
+          <li>RPG</li>
         </ul>
       </div>
       <div>

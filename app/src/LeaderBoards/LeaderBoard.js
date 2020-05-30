@@ -34,7 +34,7 @@ function LeaderBoard({ entries, history, errorMessage }) {
                     guild={entry.guild ? entry.guild.name : 'not in guild'}
                     characterClass={entry.characterClass.name}
                     itemLevel={entry.itemLevel}
-                    iconSize={'64'}
+                    iconSize={42}
                   />
                 </div>
               </td>

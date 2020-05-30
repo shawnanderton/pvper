@@ -1,30 +1,18 @@
-.progress {
-  &::-webkit-progress-bar {
-    background-color: #b52e31;
-  }
-  &::-webkit-progress-value {
-    background-color: #b52e31;
-  }
-  &::-moz-progress-bar {
-    background-color: #b52e31;
-  }
-  border: none;
-}
-
 .percentage {
-   position: absolute;
-   text-align: center;
-   width: 100%;
+  position: absolute;
+  text-align: center;
+  vertical-align: text-top;
+  width: 100%;
+  font-size: .7rem;
+  font-weight: bold;
 }
 .progress {
-    position: relative;
+  position: relative;
   width: 100%;
-  height: 1.5rem;
+  height: 1rem;
   padding: 0;
   background-color: #f14668;
   .progress-bar {
-    text-align: center;
-    vertical-align: middle;
     background-color: #48c774;
     height: 100%;
     margin: 0;
@@ -32,9 +20,9 @@
   }
 }
 
-.columns {
-  margin-bottom: 0 !important;
-  .column {
-    padding: 0.75rem 0.75rem 0.25rem 0.75rem;
-  }
+.tag {
+  font-size: 12px;
+  font-weight: bolder;
+  height: 1rem !important;
+  margin: 0 0.5em 0 0 !important;
 }

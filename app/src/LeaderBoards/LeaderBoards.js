@@ -5,6 +5,7 @@ import { loadLeaderBoardAction } from '../store';
 import LeaderBoard from './LeaderBoard';
 import Tabs from '../components/Tabs/Tabs';
 import Tab from '../components/Tabs/Tab';
+import Pagination from '../components/Pagination/Pagination';
 
 function LeaderBoards({ history }) {
   const dispatch = useDispatch();
@@ -25,6 +26,10 @@ function LeaderBoards({ history }) {
       </Tabs>
       <div>
         <LeaderBoard entries={leaderBoard} />
+      </div>
+      <div style={{paddingTop:5}}>
+        <Pagination total={50} />
+
       </div>
     </>
   );

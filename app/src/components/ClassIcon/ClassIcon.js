@@ -22,7 +22,7 @@ function ClassIcon({ characterClass, size }) {
 
 ClassIcon.propTypes = {
   characterClass: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
+  size: PropTypes.number.isRequired,
 };
 
 export default ClassIcon;

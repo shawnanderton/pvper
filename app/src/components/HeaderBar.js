@@ -3,7 +3,7 @@ import HeaderBarBrand from './HeaderBarBrand';
 
 const HeaderBar = () => (
   <nav
-    className="navbar has-background-dark is-dark topNav"
+    className="navbar has-background-dark topNav"
     role="navigation"
     aria-label="main navigation"
   >

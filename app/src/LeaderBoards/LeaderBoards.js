@@ -9,12 +9,14 @@ import Pagination from '../components/Pagination/Pagination';
 
 function LeaderBoards({ history }) {
   const dispatch = useDispatch();
-  const getLeaderBoard = useCallback(() => dispatch(loadLeaderBoardAction()), [
-    dispatch,
-  ]); // called within a useEffect()
+  const options = {
+    page: 1,
+    limit: 20,
+  };
+  const getLeaderBoard = (options) => dispatch(loadLeaderBoardAction(options));
   const leaderBoard = useSelector((state) => state.leaderBoard.data);
   useEffect(() => {
-    getLeaderBoard();
+    getLeaderBoard(options);
   }, [getLeaderBoard]);
 
   return (
@@ -27,9 +29,8 @@ function LeaderBoards({ history }) {
       <div>
         <LeaderBoard entries={leaderBoard} />
       </div>
-      <div style={{paddingTop:5}}>
+      <div style={{ paddingTop: 5 }}>
         <Pagination total={50} />
-
       </div>
     </>
   );

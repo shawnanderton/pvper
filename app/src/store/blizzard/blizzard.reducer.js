@@ -15,7 +15,6 @@ export const leaderBoardReducer = (state = initState, action) => {
     case LOAD_LEADER_BOARD:
       return { ...state, loading: true, error: '' };
     case LOAD_LEADER_BOARD_SUCCESS:
-      console.log('LOAD_LEADER_BOARD_SUCCESS', action.payload);
       return { ...state, loading: false, data: action.payload };
     case LOAD_LEADER_BOARD_ERROR:
       return { ...state, loading: false, error: action.payload };

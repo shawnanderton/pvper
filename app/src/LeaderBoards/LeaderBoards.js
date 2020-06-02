@@ -13,11 +13,19 @@ function LeaderBoards({ history }) {
     page: 1,
     limit: 20,
   };
-  const getLeaderBoard = (options) => dispatch(loadLeaderBoardAction(options));
+ 
+  const getLeaderBoard = useCallback(() => dispatch(loadLeaderBoardAction(options), options), [dispatch]);
   const leaderBoard = useSelector((state) => state.leaderBoard.data);
+  console.log('leaderbo',leaderBoard);
   useEffect(() => {
-    getLeaderBoard(options);
+    getLeaderBoard();
   }, [getLeaderBoard]);
+
+  function handleClick(page) {
+    options.page = page;
+    console.log('handle clicked', page);
+    dispatch(loadLeaderBoardAction(options));
+  }
 
   return (
     <>
@@ -30,7 +38,7 @@ function LeaderBoards({ history }) {
         <LeaderBoard entries={leaderBoard} />
       </div>
       <div style={{ paddingTop: 5 }}>
-        <Pagination total={50} />
+        <Pagination total={50} handleClick={handleClick} />
       </div>
     </>
   );

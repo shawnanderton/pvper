@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import PaginationItem from './PaginationItem';
 
-function PaginationList({ current, start, end, setCurrent }) {
+function PaginationList({ current, start, end, handleClick }) {
   const [paginationItems, setPaginationItems] = useState([]);
 
   function handlePageinationItems() {
@@ -13,11 +13,6 @@ function PaginationList({ current, start, end, setCurrent }) {
     }
     console.log(list);
     setPaginationItems(() => list);
-  }
-
-  function handleClick(page) {
-    console.log('click::: ', page);
-    setCurrent(page)
   }
 
   useEffect(() => {

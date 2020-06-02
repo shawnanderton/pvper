@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import PaginationList from './PaginationList';
 
-function Pagination({ total }) {
+function Pagination({ total, handleClick }) {
   const [current, setCurrent] = useState(1);
   const [start, setStart] = useState(1);
   
@@ -29,7 +29,7 @@ function Pagination({ total }) {
     >
       <a className="pagination-previous">Previous</a>
       <a className="pagination-next">Next page</a>
-      <PaginationList total={total} current={current} start={start} end={end} setCurrent={setCurrent} />
+      <PaginationList total={total} handleClick={handleClick} current={current} start={start} end={end} setCurrent={setCurrent} />
     </nav>
   );
 }

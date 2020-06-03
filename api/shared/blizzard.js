@@ -57,7 +57,6 @@ const getChacaterProfile = async (region, realm, name, token) => {
   }
   
   data = {...defaultProfile, ...response.data}
-  console.log('dddddddddddddddddddddddddddddddddddddddd',data);
   cache.setJson(key, data);
   return data;
 };

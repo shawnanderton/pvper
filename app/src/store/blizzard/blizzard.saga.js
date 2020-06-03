@@ -8,6 +8,7 @@ import { getleaderBoardApi } from './blizzard.api';
 
 export function* loadingLeaderBoardAsync({payload}) {
   try {
+    yield put({ type: LOAD_LEADER_BOARD_SUCCESS, payload: [] });
     const data = yield call(getleaderBoardApi, payload);
 
     yield put({ type: LOAD_LEADER_BOARD_SUCCESS, payload: data });

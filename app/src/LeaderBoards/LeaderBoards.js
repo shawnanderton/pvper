@@ -19,7 +19,6 @@ function LeaderBoards({ history }) {
 
   const getLeaderBoard = useCallback(
     (o) => {
-      console.log('testtest::::', o);
       dispatch(loadLeaderBoardAction(o));
     },
     [dispatch],
@@ -27,7 +26,7 @@ function LeaderBoards({ history }) {
   const leaderBoard = useSelector((state) => state.leaderBoard);
   useEffect(() => {
     getLeaderBoard(options);
-  }, [options]);
+  }, [getLeaderBoard, options]);
 
   function handleChangePage(event, page) {
     setOptions({ ...options, page });

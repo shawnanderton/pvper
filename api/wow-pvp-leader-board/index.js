@@ -5,24 +5,31 @@ const {
   convertBracket,
 } = require("../shared/blizzard");
 
-module.exports = async function (context, req) {;
+module.exports = async function (context, req) {
   const { region, season, bracket } = req.params;
-  let {limit, page} = req.query;
+  let { limit = 15, page = 0 } = req.query;
   try {
     const token = await getToken(region);
-    const leaderboard = await getLeaderBoards(region, season, "2v2", token);
-    limit = parseInt(limit)
-    const begin = (page -1) * limit;
+
+    const leaderboard = await getLeaderBoards(region, season, bracket, token);
+    limit = parseInt(limit);
+    const begin = page * limit;
     const end = begin + limit;
-    console.log('startstart', begin);
-    console.log('endend', end);
-    const leaderboardConverted = await convertBracket(
-      leaderboard.entries.sort((a,b) => a.rank - b.rank).slice(begin, end),
-      "ARENA_2v2",
+
+    const data = {
+      total: leaderboard.entries.length,
+    };
+
+    const entries = await convertBracket(
+      leaderboard.entries.sort((a, b) => a.rank - b.rank).slice(begin, end),
+      bracket,
       region,
       token
     );
-    context.res.status(200).send(leaderboardConverted);
+
+    data.entries = entries;
+
+    context.res.status(200).send(data);
   } catch (error) {
     context.res.status(500).send(error);
   }

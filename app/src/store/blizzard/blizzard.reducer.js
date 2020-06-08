@@ -6,7 +6,9 @@ import {
 
 let initState = {
   loading: false,
-  data: [],
+  data: {
+    entries: [],
+  },
   error: void 0,
 };
 

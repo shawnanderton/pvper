@@ -1,5 +1,6 @@
 import React from 'react';
 import CharacterDetail from './CharacterDetail';
+import { Grid } from '@material-ui/core';
 
 import ClassIcon from '../ClassIcon';
 
@@ -15,16 +16,23 @@ function CharacterCard({
   itemLevel,
   iconSize,
 }) {
-  
   return (
-    <>
-      <div className="class-icon">
+    <Grid container spacing={2} >
+      <Grid item>
         <ClassIcon characterClass={characterClass} size={iconSize} />
-      </div>
-      <div className="character-detail">
-        <CharacterDetail name={name} title={title} itemLevel={itemLevel} race={race} guild={guild} characterClass={characterClass} realm={realm} />
-      </div>
-    </>
+      </Grid>
+      <Grid item>
+        <CharacterDetail
+          name={name}
+          title={title}
+          itemLevel={itemLevel}
+          race={race}
+          guild={guild}
+          characterClass={characterClass}
+          realm={realm}
+        />
+      </Grid>
+    </Grid>
   );
 }
 

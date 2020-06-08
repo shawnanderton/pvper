@@ -1,5 +1,6 @@
 const cache = require("./cache");
 const axios = require("axios");
+const characterProfileCache = require("./characterProfileCache");
 
 const host = "api.blizzard.com";
 let blizzardOauth = null;
@@ -45,20 +46,13 @@ const getUrl = (region = "us") => {
 
 const getChacaterProfile = async (region, realm, name, token) => {
   const url = `https://${region}.api.blizzard.com/profile/wow/character/${realm}/${name.toLowerCase()}?namespace=profile-us&locale=en_US`;
-  const key = `${region}-${realm}-${name}`;
-  let data = await cache.getJson(key);
-  if (data) return data;
-  let response = null;
   try {
-    response = await axios.get(`${url}&access_token=${token}`);
+    const response = await axios.get(`${url}&access_token=${token}`);
+    return response.data;
   } catch (error) {
     console.error("getChacaterProfile", error);
     return defaultProfile;
   }
-  
-  data = {...defaultProfile, ...response.data}
-  cache.setJson(key, data);
-  return data;
 };
 
 const getLeaderBoards = async (region, season, bracket, token) => {
@@ -73,8 +67,26 @@ const getLeaderBoards = async (region, season, bracket, token) => {
 
 const convertBracket = async (entries, bracket, region, token) => {
   let characters = [];
+
   try {
     for (const entry of entries) {
+      const key = `${region}-${entry.character.realm.slug}-${entry.character.name}`;
+      let data = await characterProfileCache.get(key);
+
+      if (data) {
+        let character = data;
+        character[bracket] = {
+          rank: entry.rank,
+          rating: entry.rating,
+          played: entry.season_match_statistics.played,
+          won: entry.season_match_statistics.won,
+          lost: entry.season_match_statistics.lost,
+        };
+
+        characters.push(character);
+        continue;
+      }
+
       let character = {
         name: entry.character.name,
         faction: entry.faction.type,
@@ -82,13 +94,17 @@ const convertBracket = async (entries, bracket, region, token) => {
           id: entry.character.realm.id,
           name: entry.character.realm.slug,
         },
-        [bracket]: {
-          rank: entry.rank,
-          rating: entry.rating,
-          played: entry.season_match_statistics.played,
-          won: entry.season_match_statistics.won,
-          lost: entry.season_match_statistics.lost,
-        },
+        ["2v2"]: {},
+        ["3v3"]: {},
+        ["rbg"]: {},
+      };
+
+      character[bracket] = {
+        rank: entry.rank,
+        rating: entry.rating,
+        played: entry.season_match_statistics.played,
+        won: entry.season_match_statistics.won,
+        lost: entry.season_match_statistics.lost,
       };
 
       let profile = await getChacaterProfile(
@@ -101,7 +117,7 @@ const convertBracket = async (entries, bracket, region, token) => {
       character.gender = profile.gender.name;
       character.level = profile.level;
       character.itemLevel = profile.average_item_level;
-      character.title = profile.active_title.name;
+      character.title = profile.active_title ? profile.active_title.name : "";
 
       character.characterClass = {
         id: profile.character_class.id,
@@ -117,18 +133,19 @@ const convertBracket = async (entries, bracket, region, token) => {
         id: profile.race.id,
         name: profile.race.name,
       };
+      if (profile.guild) {
+        character.guild = {
+          id: profile.guild.id,
+          name: profile.guild.name,
+        };
+      }
 
-      character.guild = {
-        id: profile.guild.id,
-        name: profile.guild.name,
-      };
-
+      characterProfileCache.save(key, character);
       characters.push(character);
     }
   } catch (err) {
     console.log("erorr", err);
     throw err;
-    return;
   }
 
   return characters;

@@ -2,11 +2,7 @@ import React from 'react';
 import LeaderBoards from '../LeaderBoards/LeaderBoards';
 
 function Home({ history }) {
-  return (
-    <div className="main">
-      <LeaderBoards />
-    </div>
-  );
+  return <LeaderBoards />;
 }
 
 export default Home;

@@ -6,12 +6,11 @@ import {
 } from './blizzard.actions';
 import { getleaderBoardApi } from './blizzard.api';
 
-export function* loadingLeaderBoardAsync() {
+export function* loadingLeaderBoardAsync({ payload }) {
   try {
-    const data = yield call(getleaderBoardApi);
-    const leaderBoard = data;
+    const data = yield call(getleaderBoardApi, payload);
 
-    yield put({ type: LOAD_LEADER_BOARD_SUCCESS, payload: leaderBoard });
+    yield put({ type: LOAD_LEADER_BOARD_SUCCESS, payload: data });
   } catch (err) {
     yield put({ type: LOAD_LEADER_BOARD_ERROR, payload: err.message });
   }

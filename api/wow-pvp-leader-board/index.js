@@ -1,28 +1,35 @@
 const {
   getToken,
   getUrl,
+  getLeaderBoards,
   convertBracket,
-  testData,
 } = require("../shared/blizzard");
-const axios = require("axios");
 
 module.exports = async function (context, req) {
   const { region, season, bracket } = req.params;
-
-  const baseUrl = getUrl(region);
+  let { limit = 15, page = 0 } = req.query;
   try {
-    // token = await getToken();
+    const token = await getToken(region);
 
-    // const url = `${baseUrl}/data/wow/pvp-season/${season}/pvp-leaderboard/2v2?namespace=dynamic-us&locale=en_US&access_token=${token}`;
-    // const response = await axios.get(url);
-    // console.log(response.data);
-    // const bracket2 = await convertBracket(
-    //   response.data.entries.splice(0, 10),
-    //   response.data.bracket.type,
-    //   region,
-    //   token
-    // );
-    context.res.status(200).send(testData);
+    const leaderboard = await getLeaderBoards(region, season, bracket, token);
+    limit = parseInt(limit);
+    const begin = page * limit;
+    const end = begin + limit;
+
+    const data = {
+      total: leaderboard.entries.length,
+    };
+
+    const entries = await convertBracket(
+      leaderboard.entries.sort((a, b) => a.rank - b.rank).slice(begin, end),
+      bracket,
+      region,
+      token
+    );
+
+    data.entries = entries;
+
+    context.res.status(200).send(data);
   } catch (error) {
     context.res.status(500).send(error);
   }

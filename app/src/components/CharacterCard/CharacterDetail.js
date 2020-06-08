@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Grid } from '@material-ui/core';
+
 import './character-detail.scss';
 
 function CharacterDetail({
@@ -14,14 +16,15 @@ function CharacterDetail({
   realm,
 }) {
   const classSlug = characterClass.replace(/\s/g, '').toLowerCase();
+
   const classColor = `color-${classSlug}`;
   return (
-    <div className="character-detail">
-      <div className="character-title">
+    <Grid container spacing={1}>
+      <Grid item>
         <div>{title}</div>
         <div className={`character-name ${classColor}`}>{name}</div>
-      </div>
-      <div className="character-info">
+      </Grid>
+      <Grid item>
         <div className="character-item-level">{itemLevel} ILVL</div>
         <div className="character-info-text">
           <span>{level}</span>
@@ -31,8 +34,8 @@ function CharacterDetail({
           <span>{`<${guild}>`}</span>
           <span> {realm}</span>
         </div>
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   );
 }
 

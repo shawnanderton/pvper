@@ -1,11 +1,11 @@
-// const cache = require("./cache");
+const cache = require("./cache");
 
-// async function get(key) {
-//   return await cache.getJson(key);
-// }
+async function get(key) {
+  return await cache.getJson(key);
+}
 
-// function save(key, data) {
-//   cache.setJson(key, data);
-// }
+function save(key, data) {
+  cache.setJson(key, data);
+}
 
-// module.exports = { get, save };
+module.exports = { get, save };

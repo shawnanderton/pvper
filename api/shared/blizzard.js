@@ -21,8 +21,8 @@ const getToken = async () => {
 
   const credentials = {
     client: {
-      id: process.env["BLIZZARD-CLIENT-ID"],
-      secret: process.env["BLIZZARD-CLIENT-SECRET"],
+      id: process.env["BLIZZARDCLIENTID"],
+      secret: process.env["BLIZZARDCLIENTSECRET"],
     },
     auth: {
       tokenHost: "https://us.battle.net",

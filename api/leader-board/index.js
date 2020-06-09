@@ -5,9 +5,10 @@ const {
 } = require("../shared/blizzard");
 
 module.exports = async function (context, req) {
-  const { region, season, bracket } = req.params;
-  let { limit = 15, page = 0 } = req.query;
   try {
+    const { region, season, bracket } = req.params;
+    let { limit = 15, page = 0 } = req.query;
+
     const token = await getToken(region);
 
     const leaderboard = await getLeaderBoards(region, season, bracket, token);

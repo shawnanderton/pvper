@@ -1,6 +1,5 @@
 const {
   getToken,
-  getUrl,
   getLeaderBoards,
   convertBracket,
 } = require("../shared/blizzard");

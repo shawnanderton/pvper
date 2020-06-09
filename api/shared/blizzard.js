@@ -1,6 +1,6 @@
-// const cache = require("./cache");
+ const cache = require("./cache");
 const axios = require("axios");
-//const characterProfileCache = require("./characterProfileCache");
+const characterProfileCache = require("./characterProfileCache");
 
 const host = "api.blizzard.com";
 let blizzardOauth = null;
@@ -58,10 +58,10 @@ const getChacaterProfile = async (region, realm, name, token) => {
 const getLeaderBoards = async (region, season, bracket, token) => {
   const url = `https://${region}.api.blizzard.com//data/wow/pvp-season/${season}/pvp-leaderboard/${bracket}?namespace=dynamic-us&locale=en_US`;
   const key = `${region}-${season}-${bracket};`;
-  const data = null; // await cache.getJson(key);
+  const data = await cache.getJson(key);
   if (data) return data;
   const response = await axios.get(`${url}&access_token=${token}`);
-  //cache.setJson(key, response.data);
+  cache.setJson(key, response.data);
   return response.data;
 };
 
@@ -71,7 +71,7 @@ const convertBracket = async (entries, bracket, region, token) => {
   try {
     for (const entry of entries) {
       const key = `${region}-${entry.character.realm.slug}-${entry.character.name}`;
-      let data = null; // await characterProfileCache.get(key);
+      let data = await characterProfileCache.get(key);
 
       if (data) {
         let character = data;
@@ -140,7 +140,7 @@ const convertBracket = async (entries, bracket, region, token) => {
         };
       }
 
-      //characterProfileCache.save(key, character);
+      characterProfileCache.save(key, character);
       characters.push(character);
     }
   } catch (err) {

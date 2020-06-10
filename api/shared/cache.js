@@ -1,6 +1,8 @@
 const redis = require("redis");
 const { promisify } = require("util");
 let client = null;
+let expireTime =600;
+const getAsync;
 
 function setRedis() {
   try {
@@ -8,12 +10,12 @@ function setRedis() {
       auth_pass: process.env.REDISCACHEKEY,
       tls: { servername: process.env.REDISCACHEHOSTNAME },
     });
+
+     getAsync = promisify(client.get).bind(client);
   } catch (err) {
     throw err;
   }
 }
-const getAsync = promisify(client.get).bind(client);
-let expireTime = 600;
 
 const getJson = async (key) => {
   const data = await getAsync(key);

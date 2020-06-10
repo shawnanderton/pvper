@@ -1,4 +1,4 @@
- const cache = require("./cache");
+const cache = require("./cache");
 const axios = require("axios");
 const characterProfileCache = require("./characterProfileCache");
 

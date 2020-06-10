@@ -3,10 +3,14 @@ const { promisify } = require("util");
 let client = null;
 
 function setRedis() {
-  client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME, {
-    auth_pass: process.env.REDISCACHEKEY,
-    tls: { servername: process.env.REDISCACHEHOSTNAME },
-  });
+  try {
+    client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME, {
+      auth_pass: process.env.REDISCACHEKEY,
+      tls: { servername: process.env.REDISCACHEHOSTNAME },
+    });
+  } catch (err) {
+    throw err;
+  }
 }
 const getAsync = promisify(client.get).bind(client);
 let expireTime = 600;

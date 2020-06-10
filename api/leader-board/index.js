@@ -1,3 +1,5 @@
+const cache = require("../shared/cache");
+
 const {
   getToken,
   getLeaderBoards,
@@ -6,6 +8,7 @@ const {
 
 module.exports = async function (context, req) {
   try {
+    cache.setRedis();
     const { region, season, bracket } = req.params;
     let { limit = 15, page = 0 } = req.query;
 

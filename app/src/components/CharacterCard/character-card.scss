@@ -1,7 +1,11 @@
-.class-icon {
-    margin-top: 10px;
+.character-detail {
+  margin-top: 5px;
 }
 
-.character-detail {
-    margin-top: 5px;
+.character-card {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 12px;
+  max-width: 200px;
 }

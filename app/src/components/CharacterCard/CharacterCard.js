@@ -17,11 +17,8 @@ function CharacterCard({
   iconSize,
 }) {
   return (
-    <Grid container spacing={2} >
-      <Grid item>
+    <div className="character-card">
         <ClassIcon characterClass={characterClass} size={iconSize} />
-      </Grid>
-      <Grid item>
         <CharacterDetail
           name={name}
           title={title}
@@ -31,8 +28,7 @@ function CharacterCard({
           characterClass={characterClass}
           realm={realm}
         />
-      </Grid>
-    </Grid>
+    </div>
   );
 }
 

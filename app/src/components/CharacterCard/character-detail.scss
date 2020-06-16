@@ -1,28 +1,20 @@
-.character-detail {
-   font-size: 12px;
-  .character-info-text {
-    span {
-      margin-right: 1px;
-    }
-  }
+.character {
+  flex: 1;
+  margin-left: 5px;
+}
+.character-info {
+  flex: 1;
+}
 
-  .character-name {
-    font-weight: bold;
-    
-  }
-  .character-title {
-    border-right: solid 1px white;
-    max-width: 150px;
-    min-width: 150px;
-    > div {
-      min-height: .75rem;
-      padding-left: .25rem;;
-    }
-  }
+.character-name {
+  font-size: 12px;
+   width: 50px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-  .character-info {
-    padding-left: 1rem;
-  }
-
-  display: flex;
+.character-item-level {
+  font-weight: bold;
+  padding-left: 10px;
 }

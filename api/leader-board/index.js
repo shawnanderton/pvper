@@ -1,4 +1,5 @@
 const cache = require("../shared/cache");
+const characterProfileDb = require("../shared/character-profile-db");
 
 const {
   getToken,
@@ -9,6 +10,7 @@ const {
 module.exports = async function (context, req) {
   try {
     cache.setRedis();
+    characterProfileDb.init();
     const { region, season, bracket } = req.params;
     let { limit = 15, page = 0 } = req.query;
 

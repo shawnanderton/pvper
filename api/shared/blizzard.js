@@ -1,6 +1,6 @@
 const cache = require("./cache");
 const axios = require("axios");
-const characterProfileCache = require("./characterProfileCache");
+const characterProfileDb = require("./character-profile-db");
 
 const host = "api.blizzard.com";
 let blizzardOauth = null;
@@ -21,8 +21,8 @@ const getToken = async () => {
 
   const credentials = {
     client: {
-      id: process.env["BLIZZARD-CLIENT-ID"],
-      secret: process.env["BLIZZARD-CLIENT-SECRET"],
+      id: process.env["BLIZZARDCLIENTID"],
+      secret: process.env["BLIZZARDCLIENTSECRET"],
     },
     auth: {
       tokenHost: "https://us.battle.net",
@@ -71,8 +71,7 @@ const convertBracket = async (entries, bracket, region, token) => {
   try {
     for (const entry of entries) {
       const key = `${region}-${entry.character.realm.slug}-${entry.character.name}`;
-      let data = await characterProfileCache.get(key);
-
+      const data = await characterProfileDb.get(key);
       if (data) {
         let character = data;
         character[bracket] = {
@@ -140,7 +139,8 @@ const convertBracket = async (entries, bracket, region, token) => {
         };
       }
 
-      characterProfileCache.save(key, character);
+      character.id = key;
+      characterProfileDb.create(character);
       characters.push(character);
     }
   } catch (err) {

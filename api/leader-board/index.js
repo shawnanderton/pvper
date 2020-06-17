@@ -1,14 +1,19 @@
+const cache = require("../shared/cache");
+const characterProfileDb = require("../shared/character-profile-db");
+
 const {
   getToken,
-  getUrl,
   getLeaderBoards,
   convertBracket,
 } = require("../shared/blizzard");
 
 module.exports = async function (context, req) {
-  const { region, season, bracket } = req.params;
-  let { limit = 15, page = 0 } = req.query;
   try {
+    cache.setRedis();
+    characterProfileDb.init();
+    const { region, season, bracket } = req.params;
+    let { limit = 15, page = 0 } = req.query;
+
     const token = await getToken(region);
 
     const leaderboard = await getLeaderBoards(region, season, bracket, token);

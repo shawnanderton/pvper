@@ -1,21 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tooltip from '@material-ui/core/Tooltip';
+import ButtonBase from '@material-ui/core/ButtonBase';
 
 import './class-icon.scss';
+import images from './images';
 
-function ClassIcon({ characterClass, size }) {
-  console.log('characterClass', characterClass);
+ function ClassIcon({ characterClass, size }) {
   const classSlug = characterClass.replace(/\s/g, '').toLowerCase();
-  const iconClass = `icon-${classSlug}`;
-
   const styles = {
     width: size,
     height: size,
-    backgroundSize: size,
   };
 
   return (
-      <div className={`icon ${iconClass}`} style={styles}></div>
+    <Tooltip title={characterClass} placement="bottom">
+      <ButtonBase>
+        <img
+          className="class-icon"
+          src={images[`icon_${classSlug}`]}
+          style={styles}
+          alt={characterClass}
+        />
+      </ButtonBase>
+    </Tooltip>
   );
 }
 

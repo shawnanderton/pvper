@@ -1,46 +1,6 @@
-.icon {
-  background-repeat: no-repeat;
-}
-
-.icon-size-42 {
-  height: 42px;
-  width: 42px;
-  background-size: 42px;
-}
-
-.icon-deathknight {
-  background-image: url(images/icon-deathknight.png);
-}
-.icon-demonhunter {
-  background-image: url(images/icon-demonhunter.png);
-}
-.icon-druid {
-  background-image: url(images/icon-druid.png);
-}
-.icon-hunter {
-  background-image: url(images/icon-hunter.png);
-}
-.icon-mage {
-  background-image: url(images/icon-mage.png);
-}
-.icon-monk {
-  background-image: url(images/icon-monk.png);
-}
-.icon-paladin {
-  background-image: url(images/icon-paladin.png);
-}
-.icon-priest {
-  background-image: url(images/icon-priest.png);
-}
-.icon-rogue {
-  background-image: url(images/icon-rogue.png);
-}
-.icon-shaman {
-  background-image: url(images/icon-shaman.png);
-}
-.icon-warlock {
-  background-image: url(images/icon-warlock.png);
-}
-.icon-warrior {
-  background-image: url(images/icon-warrior.png);
+.class-icon {
+  border: 1px solid gray;
+  margin: 0;
+  padding: 0;;
+  border-radius: 5px;
 }

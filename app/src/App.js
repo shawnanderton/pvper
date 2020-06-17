@@ -10,7 +10,7 @@ function App() {
     <>
       <HeaderBar />
       <Box m={2}>
-        <Container maxWidth='xl'>
+        <Container maxWidth='lg'>
           <Grid container spacing={1}>
             <Grid item xs={10}>
               <Paper>

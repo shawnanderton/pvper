@@ -13,12 +13,13 @@ import {
   Paper,
 } from '@material-ui/core';
 
-import ArenaProgress from '../components/ArenaProgress';
-import CharacterCard from '../components/CharacterCard';
+import ArenaProgress from '../ArenaProgress';
+import CharacterCard from '../CharacterCard';
+import ClassFilter from '../ClassFilter';
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 850,
+    minWidth: 950,
   },
 });
 
@@ -39,21 +40,20 @@ function LeaderBoard({
       {(!entries || !entries.length) && !errorMessage && (
         <div>Loading data ...</div>
       )}
-    
       <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
+        <Table size="small" className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell size="small">Rank</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>wins/lost</TableCell>
-              <TableCell>Rating</TableCell>
+              <TableCell size="small" >Name</TableCell>
+              <TableCell size="small" >wins/lost</TableCell>
+              <TableCell size="small" >Rating</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {entries.map((entry, index) => (
-              <TableRow key={index}>
-                <TableCell align="center" size="small">
+              <TableRow size="small" key={index}>
+                <TableCell align="center">
                   {entry[bracket].rank}
                 </TableCell>
                 <TableCell size="small" className="name">
@@ -67,17 +67,17 @@ function LeaderBoard({
                       entry.characterClass.name ? entry.characterClass.name : ''
                     }
                     itemLevel={entry.itemLevel}
-                    iconSize={42}
+                    iconSize={32}
                   />
                 </TableCell>
-                <TableCell className="arena-progress">
+                <TableCell size="small"  className="arena-progress">
                   <ArenaProgress
                     won={entry[bracket].won}
                     lost={entry[bracket].lost}
                     played={entry[bracket].played}
                   />
                 </TableCell>
-                <TableCell className="rating is-capitalized has-text-weight-bold has-text-centered">
+                <TableCell size="small"  className="rating is-capitalized has-text-weight-bold has-text-centered">
                   {entry[bracket].rating}
                 </TableCell>
               </TableRow>

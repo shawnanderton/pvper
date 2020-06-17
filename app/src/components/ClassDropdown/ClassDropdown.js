@@ -35,12 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ClassDropdown() {
   const styles = useStyles();
-
   const [selectedItem, setSelectedItem] = React.useState(classes);
-  const [selectedFaction, setSelectedFaction] = React.useState([
-    'Horde',
-    'Alliance',
-  ]);
 
   function handleChange(event) {
     const { value } = event.target;
@@ -54,58 +49,31 @@ export default function ClassDropdown() {
   }
 
   return (
-    <form>
-      <FormControl variant="outlined" className={styles.formControl}>
-        <InputLabel id="demo-simple-select-label">Season</InputLabel>
-        <Select
-          labelId="demo-mutiple-name-label"
-          id="demo-mutiple-name"
-          multiple
-          value={selectedItem}
-          onChange={handleChange}
-        ></Select>
-      </FormControl>
-      <FormControl variant="outlined" className={styles.formControl}>
-        <InputLabel id="demo-simple-select-label">Classes</InputLabel>
-        <Select
-          labelId="demo-mutiple-name-label"
-          id="demo-mutiple-name"
-          multiple
-          value={selectedItem}
-          onChange={handleChange}
-          renderValue={(selected) => (
-            <Grid container direction="row" spacing={0}>
-              {selected.map((c, i) => (
-                <Grid key={i} item xs={2}>
-                  <ClassIcon characterClass={c} size={24} />
-                </Grid>
-              ))}
-            </Grid>
-          )}
-        >
-          {classes.map((c, i) => (
-            <MenuItem key={i} value={c}>
-              <ListItemIcon>
-                <ClassIcon characterClass={c} size={32} />
-              </ListItemIcon>
-              {c}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <FormControl variant="outlined" className={styles.formControl}>
-        <InputLabel id="demo-simple-select-label">Faction</InputLabel>
-        <Select
-          labelId="demo-mutiple-name-label"
-          id="demo-mutiple-name"
-          multiple
-          value={selectedFaction}
-          onChange={handleChange}
-        >
-          <MenuItem value="All">Horde</MenuItem>
-          <MenuItem>Alliance</MenuItem>
-        </Select>
-      </FormControl>
-    </form>
+    <FormControl variant="outlined" className={styles.formControl}>
+      <InputLabel>Classes</InputLabel>
+      <Select
+        multiple
+        value={selectedItem}
+        onChange={handleChange}
+        renderValue={(selected) => (
+          <Grid container direction="row" spacing={0}>
+            {selected.map((c, i) => (
+              <Grid key={i} item xs={2}>
+                <ClassIcon characterClass={c} size={24} />
+              </Grid>
+            ))}
+          </Grid>
+        )}
+      >
+        {classes.map((c, i) => (
+          <MenuItem key={i} value={c}>
+            <ListItemIcon>
+              <ClassIcon characterClass={c} size={32} />
+            </ListItemIcon>
+            {c}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 }

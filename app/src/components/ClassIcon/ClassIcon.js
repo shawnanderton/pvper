@@ -4,11 +4,10 @@ import Tooltip from '@material-ui/core/Tooltip';
 import ButtonBase from '@material-ui/core/ButtonBase';
 
 import './class-icon.scss';
+import images from './images';
 
-const images = require.context('./images', true);
-function ClassIcon({ characterClass, size }) {
+ function ClassIcon({ characterClass, size }) {
   const classSlug = characterClass.replace(/\s/g, '').toLowerCase();
-  let img_src = images(`./classicon_${classSlug}.jpg`);
   const styles = {
     width: size,
     height: size,
@@ -19,7 +18,7 @@ function ClassIcon({ characterClass, size }) {
       <ButtonBase>
         <img
           className="class-icon"
-          src={img_src}
+          src={images[`icon_${classSlug}`]}
           style={styles}
           alt={characterClass}
         />

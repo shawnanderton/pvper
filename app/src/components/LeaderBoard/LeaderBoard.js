@@ -13,9 +13,9 @@ import {
   Paper,
 } from '@material-ui/core';
 
-import ArenaProgress from '../components/ArenaProgress';
-import CharacterCard from '../components/CharacterCard';
-import ClassFilter from '../components/ClassFilter';
+import ArenaProgress from '../ArenaProgress';
+import CharacterCard from '../CharacterCard';
+import ClassFilter from '../ClassFilter';
 
 const useStyles = makeStyles({
   table: {

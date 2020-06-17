@@ -1,5 +1,5 @@
 import React from 'react';
-import LeaderBoards from '../LeaderBoards/LeaderBoards';
+import LeaderBoards from '../components/LeaderBoards';
 
 function Home({ history }) {
   return <LeaderBoards />;

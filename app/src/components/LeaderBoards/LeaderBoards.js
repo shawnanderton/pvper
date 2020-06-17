@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { loadLeaderBoardAction } from '../store';
-import LeaderBoard from './LeaderBoard';
+import { loadLeaderBoardAction } from '../../store';
+import LeaderBoard from '../LeaderBoard';
 import { AppBar, Tabs, Tab } from '@material-ui/core';
-import ClassDropdown from '../components/ClassDropdown';
+import ClassDropdown from '../ClassDropdown';
 
 function LeaderBoards({ history }) {
   const [tabValue, setTabValue] = useState(0);

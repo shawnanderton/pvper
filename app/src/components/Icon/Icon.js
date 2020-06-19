@@ -3,33 +3,33 @@ import PropTypes from 'prop-types';
 import Tooltip from '@material-ui/core/Tooltip';
 import ButtonBase from '@material-ui/core/ButtonBase';
 
-import './class-icon.scss';
+import './icon.scss';
 import images from './images';
 
- function ClassIcon({ characterClass, size }) {
-  const classSlug = characterClass.replace(/\s/g, '').toLowerCase();
+ function Icon({ name, size }) {
+  name = name.replace(/\s/g, '').toLowerCase();
   const styles = {
     width: size,
     height: size,
   };
 
   return (
-    <Tooltip title={characterClass} placement="bottom">
+    <Tooltip title={name} placement="bottom">
       <ButtonBase>
         <img
-          className="class-icon"
-          src={images[`icon_${classSlug}`]}
+          className="icon"
+          src={images[`${name}`]}
           style={styles}
-          alt={characterClass}
+          alt={name}
         />
       </ButtonBase>
     </Tooltip>
   );
 }
 
-ClassIcon.propTypes = {
-  characterClass: PropTypes.string.isRequired,
+Icon.propTypes = {
+  name: PropTypes.string.isRequired,
   size: PropTypes.number.isRequired,
 };
 
-export default ClassIcon;
+export default Icon;

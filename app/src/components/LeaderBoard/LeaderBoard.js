@@ -1,21 +1,10 @@
 import React from 'react';
-
 import { makeStyles } from '@material-ui/core/styles';
-import {
-  Table,
-  TableFooter,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TablePagination,
-  TableRow,
-  Paper,
-} from '@material-ui/core';
+import { Table, TableContainer, Paper } from '@material-ui/core';
 
-import ArenaProgress from '../ArenaProgress';
-import CharacterCard from '../CharacterCard';
-import ClassFilter from '../ClassFilter';
+import LeaderboardTableHeader from './LeaderboardTableHeader';
+import LeaderboardTableFooter from './LeaderboardTableFooter';
+import LeaderboardTableBody from './LeaderboardTableBody';
 
 const useStyles = makeStyles({
   table: {
@@ -23,82 +12,24 @@ const useStyles = makeStyles({
   },
 });
 
-function LeaderBoard({
-  bracket,
-  count,
-  entries,
-  history,
-  limit,
-  page,
-  errorMessage,
-  onChangePage,
-}) {
+function Leaderboard({ bracket, count, entries, limit, page, onChangePage }) {
   const classes = useStyles();
   return (
-    <div>
-      {errorMessage && <div>{errorMessage}</div>}
-      {(!entries || !entries.length) && !errorMessage && (
-        <div>Loading data ...</div>
-      )}
-      <TableContainer component={Paper}>
-        <Table size="small" className={classes.table} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell size="small">Rank</TableCell>
-              <TableCell size="small" >Name</TableCell>
-              <TableCell size="small" >wins/lost</TableCell>
-              <TableCell size="small" >Rating</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {entries.map((entry, index) => (
-              <TableRow size="small" key={index}>
-                <TableCell align="center">
-                  {entry[bracket].rank}
-                </TableCell>
-                <TableCell size="small" className="name">
-                  <CharacterCard
-                    name={entry.name}
-                    title={entry.title}
-                    race={entry.race.name}
-                    realm={entry.realm.name}
-                    guild={entry.guild ? entry.guild.name : 'not in guild'}
-                    characterClass={
-                      entry.characterClass.name ? entry.characterClass.name : ''
-                    }
-                    itemLevel={entry.itemLevel}
-                    iconSize={32}
-                  />
-                </TableCell>
-                <TableCell size="small"  className="arena-progress">
-                  <ArenaProgress
-                    won={entry[bracket].won}
-                    lost={entry[bracket].lost}
-                    played={entry[bracket].played}
-                  />
-                </TableCell>
-                <TableCell size="small"  className="rating is-capitalized has-text-weight-bold has-text-centered">
-                  {entry[bracket].rating}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-          <TableFooter>
-            <TableRow>
-              <TablePagination
-                rowsPerPageOptions={[5, 10, 15]}
-                count={count}
-                colSpan={3}
-                rowsPerPage={limit}
-                onChangePage={onChangePage}
-                page={page}
-              />
-            </TableRow>
-          </TableFooter>
-        </Table>
-      </TableContainer>
-    </div>
+    <TableContainer component={Paper}>
+      <Table size="small" className={classes.table} aria-label="simple table">
+        <LeaderboardTableHeader />
+        <LeaderboardTableBody entries={entries} bracket={bracket} />
+        <LeaderboardTableFooter
+          rowsPerPageOptions={[5, 10, 15]}
+          count={count}
+          colSpan={3}
+          rowsPerPage={limit}
+          onChangePage={onChangePage}
+          page={page}
+        />
+      </Table>
+    </TableContainer>
   );
 }
 
-export default LeaderBoard;
+export default Leaderboard;

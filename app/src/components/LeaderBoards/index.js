@@ -1,1 +1,1 @@
-export { default } from './LeaderBoards';
+export { default } from './Leaderboards';

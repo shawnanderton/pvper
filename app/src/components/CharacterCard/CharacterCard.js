@@ -2,7 +2,7 @@ import React from 'react';
 import CharacterDetail from './CharacterDetail';
 import { Grid } from '@material-ui/core';
 
-import ClassIcon from '../ClassIcon';
+import Icon from '../Icon';
 
 import './character-card.scss';
 
@@ -18,7 +18,7 @@ function CharacterCard({
 }) {
   return (
     <div className="character-card">
-        <ClassIcon characterClass={characterClass} size={iconSize} />
+        <Icon name={characterClass} size={iconSize} />
         <CharacterDetail
           name={name}
           title={title}

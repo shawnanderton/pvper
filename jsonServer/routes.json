@@ -1,0 +1,4 @@
+{
+  "/api/*": "/$1",
+  "/leaderboards/us/29/2v2?page=0&limit=15": "/leaderboards_2v2"
+}

@@ -8,7 +8,7 @@
       "methods": [
         "get"
       ],
-      "route": "leader-boards/{region}/{season}/{bracket}"
+      "route": "leaderboards/{region}/{season}/{bracket}"
     },
     {
       "type": "http",

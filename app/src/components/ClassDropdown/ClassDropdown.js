@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
-import ClassIcon from '../ClassIcon';
+import Icon from '../Icon';
 import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -59,7 +59,7 @@ export default function ClassDropdown() {
           <Grid container direction="row" spacing={0}>
             {selected.map((c, i) => (
               <Grid key={i} item xs={2}>
-                <ClassIcon characterClass={c} size={24} />
+                <Icon name={c} size={24} />
               </Grid>
             ))}
           </Grid>
@@ -68,7 +68,7 @@ export default function ClassDropdown() {
         {classes.map((c, i) => (
           <MenuItem key={i} value={c}>
             <ListItemIcon>
-              <ClassIcon characterClass={c} size={32} />
+              <Icon name={c} size={32} />
             </ListItemIcon>
             {c}
           </MenuItem>

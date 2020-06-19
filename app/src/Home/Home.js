@@ -1,8 +1,8 @@
 import React from 'react';
-import LeaderBoards from '../components/LeaderBoards';
+import Leaderboards from '../components/Leaderboards';
 
 function Home({ history }) {
-  return <LeaderBoards />;
+  return <div></div>;
 }
 
 export default Home;

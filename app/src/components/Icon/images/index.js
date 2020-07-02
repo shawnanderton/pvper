@@ -11,8 +11,8 @@ import rogue from './rogue.jpg';
 import shaman from './shaman.jpg';
 import warlock from './warlock.jpg';
 import warrior from './warrior.jpg';
-import alliance from './alliance.jpg';
-import horde from './horde.jpg';
+import alliance from './alliance.png';
+import horde from './horde.png';
 
 export default {
   alliance,

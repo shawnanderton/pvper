@@ -1,0 +1,25 @@
+.radio-icon-button-group {
+  margin-left: 10px;
+  .items-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    border-color: #212121;
+
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-content: space-between;
+
+      .item{
+        margin: 0 10px 5px 0;
+      }
+      
+      
+  
+    }
+    
+  }
+}

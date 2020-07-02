@@ -6,7 +6,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import './icon.scss';
 import images from './images';
 
- function Icon({ name, size }) {
+function Icon({ name, size }) {
   name = name.replace(/\s/g, '').toLowerCase();
   const styles = {
     width: size,
@@ -17,7 +17,6 @@ import images from './images';
     <Tooltip title={name} placement="bottom">
       <ButtonBase>
         <img
-          className="icon"
           src={images[`${name}`]}
           style={styles}
           alt={name}

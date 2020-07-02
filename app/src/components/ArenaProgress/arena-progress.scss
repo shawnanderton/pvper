@@ -1,27 +1,33 @@
 .percentage {
   position: absolute;
   text-align: center;
-  vertical-align: text-top;
+  vertical-align: middle;
   width: 100%;
-  font-size: .7rem;
+  height: 100%;
+  font-size: 11px;
   font-weight: bold;
+  bottom: 2px;
 }
 .progress {
   position: relative;
-  width: 400px;
-  height: 1rem;
+  width: 300px;
+  height: 10px;
   padding: 0;
-  background-color: #f14668;
+  background-color: #e02929;
+  border-radius: 10px;
+
+
   .progress-bar {
-    background-color: #48c774;
+    background-color: #393;
     height: 100%;
     margin: 0;
     padding: 0;
+    border-radius: 10px;
   }
 }
 
 .tag {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bolder;
   height: 1rem !important;
   margin: 0 0.5em 0 0 !important;

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
+    "jsonServer": "json-server --watch jsonServer/db.json --port 3001 --routes jsonServer/routes.json",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -46,6 +47,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
+    "json-server": "^0.16.1",
     "prettier": "^2.0.4",
     "react-addons-test-utils": "^15.6.2",
     "react-test-render": "^1.1.2"

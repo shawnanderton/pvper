@@ -1,15 +1,32 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { loadLeaderBoardAction } from '../../store';
 import LeaderBoard from '../Leaderboard';
-import { AppBar, Tabs, Tab } from '@material-ui/core';
+import { AppBar, Tabs, Tab, Grid, Container } from '@material-ui/core';
+import LeaderboardSearch from '../LeaderboardSearch/LeaderboardSearch';
 
 function LeaderBoards(props) {
-  const [tabValue, setTabValue] = useState(props.match.params.bracket);
   const [options, setOptions] = useState({
     page: 0,
     limit: 15,
+    bracket: props.match.params.bracket,
+    factions: ['horde', 'alliance'],
+    classes: [
+      'death knight',
+      'demon hunter',
+      'druid',
+      'hunter',
+      'mage',
+      'monk',
+      'paladin',
+      'priest',
+      'rogue',
+      'shaman',
+      'warlock',
+      'warrior',
+    ],
   });
 
   const dispatch = useDispatch();
@@ -22,27 +39,28 @@ function LeaderBoards(props) {
   );
   const leaderBoard = useSelector((state) => state.leaderBoard);
   useEffect(() => {
-    const options = {
-      page: 0,
-      limit: 15,
-      bracket: props.match.params.bracket,
-    };
+    options.bracket = props.match.params.bracket;
     getLeaderBoard(options);
-  }, [props.match.params.bracket]);
+  }, [options, getLeaderBoard]);
 
   function handleChangePage(event, page) {
     setOptions({ ...options, page });
   }
 
   function handleChange(event, newValue) {
+    setOptions({ ...options, bracket: props.match.params.bracket });
     props.history.push(`/pvp/leaderboards/${newValue}`);
+  }
+  function handleSearchChange(value) {
+    console.log('value', value.items);
+    setOptions({ ...options, [value.name]: value.items });
   }
 
   return (
     <>
       <AppBar position="static" color="default">
         <Tabs
-          value={tabValue}
+          value={options.bracket}
           indicatorColor="primary"
           onChange={handleChange}
           textColor="primary"
@@ -54,22 +72,33 @@ function LeaderBoards(props) {
           <Tab id="RBG" label="RBG" value="rbg" />
         </Tabs>
       </AppBar>
-      <div>
-        {leaderBoard.loading ? (
-          'loading'
-        ) : (
-          <LeaderBoard
-            onChangePage={handleChangePage}
-            count={leaderBoard.data.total || 0}
-            bracket={tabValue}
-            page={options.page}
-            limit={options.limit}
-            entries={leaderBoard.data.entries}
-          />
-        )}
-      </div>
+      <Container>
+        <div>
+          <div>
+            <LeaderboardSearch
+              onChange={handleSearchChange}
+              selectedClasses={options.classes}
+              selectedFractions={options.factions}
+            />
+          </div>
+          <div>
+            {leaderBoard.loading || !leaderBoard.data.entries ? (
+              'loading'
+            ) : (
+              <LeaderBoard
+                onChangePage={handleChangePage}
+                count={leaderBoard.data.total || 0}
+                bracket={options.bracket}
+                page={options.page}
+                limit={options.limit}
+                entries={leaderBoard.data.entries}
+              />
+            )}
+          </div>
+        </div>
+      </Container>
     </>
   );
 }
 
-export default LeaderBoards;
+export default withRouter(LeaderBoards);

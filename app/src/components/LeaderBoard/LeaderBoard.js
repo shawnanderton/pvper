@@ -6,7 +6,7 @@ import { loadLeaderBoardAction } from '../../store';
 import LeaderBoardTable from './LeaderboardTable';
 import LeaderboardSearch from './LeaderboardSearch';
 
-function LeaderBoards(props) {
+function Leaderboard(props) {
   const [options, setOptions] = useState({
     page: 0,
     limit: 15,
@@ -100,4 +100,4 @@ function LeaderBoards(props) {
   );
 }
 
-export default withRouter(LeaderBoards);
+export default withRouter(Leaderboard);

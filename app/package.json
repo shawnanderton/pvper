@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
+    "jsonServer": "json-server --watch jsonServer/db.json --port 3001 --routes jsonServer/routes.json",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -22,17 +23,14 @@
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
-    "@material-ui/core": "^4.10.1",
-    "@material-ui/lab": "^4.0.0-alpha.55",
-    "@material-ui/styles": "^4.10.0",
     "axios": "^0.19.0",
-    "bulma": "^0.8.1",
+    "bulma": "^0.9.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "^3.4.1",
+    "react-scripts": "^3.4.3",
     "redux": "^4.0.4",
     "redux-saga": "^1.0.5",
     "redux-thunk": "^2.3.0"
@@ -46,6 +44,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
+    "json-server": "^0.16.1",
     "prettier": "^2.0.4",
     "react-addons-test-utils": "^15.6.2",
     "react-test-render": "^1.1.2"

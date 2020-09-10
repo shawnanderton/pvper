@@ -1,16 +1,15 @@
 import React from 'react';
-import { TableBody, TableRow, TableCell } from '@material-ui/core';
 
 import ArenaProgress from '../ArenaProgress';
 import CharacterCard from '../CharacterCard';
 
-function LeaderboadTableBody({ entries, bracket }) {
+function LeaderboardTableBody({ entries, bracket }) {
   return (
-    <TableBody>
+    <tbody>
       {entries.map((entry, index) => (
-        <TableRow size="small" key={index}>
-          <TableCell align="center">{entry[bracket].rank}</TableCell>
-          <TableCell size="small" className="name">
+        <tr size="small" key={index}>
+          <td align="center">{entry[bracket].rank}</td>
+          <td size="small" className="name">
             <CharacterCard
               name={entry.name}
               title={entry.title}
@@ -23,24 +22,24 @@ function LeaderboadTableBody({ entries, bracket }) {
               itemLevel={entry.itemLevel}
               iconSize={32}
             />
-          </TableCell>
-          <TableCell size="small" className="arena-progress">
+          </td>
+          <td size="small" className="arena-progress">
             <ArenaProgress
               won={entry[bracket].won}
               lost={entry[bracket].lost}
               played={entry[bracket].played}
             />
-          </TableCell>
-          <TableCell
+          </td>
+          <td
             size="small"
             className="rating is-capitalized has-text-weight-bold has-text-centered"
           >
             {entry[bracket].rating}
-          </TableCell>
-        </TableRow>
+          </td>
+        </tr>
       ))}
-    </TableBody>
+    </tbody>
   );
 }
 
-export default LeaderboadTableBody;
+export default LeaderboardTableBody;

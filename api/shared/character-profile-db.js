@@ -29,12 +29,10 @@ async function create(newItem) {
 
 async function get(key) {
   try {
-    console.log('keyyyyy:',  key)
     const { resource } = await container.item(key, undefined).read()
-    console.log("Itemmmmmm", resource);
     return resource;
   } catch (err) {
-    console.error("Errorrrrrrrr",err);
+    console.error("Error",err);
     throw err;
   }
 }

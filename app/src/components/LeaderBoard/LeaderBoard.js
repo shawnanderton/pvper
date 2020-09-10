@@ -1,35 +1,103 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Table, TableContainer, Paper } from '@material-ui/core';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-import LeaderboardTableHeader from './LeaderboardTableHeader';
-import LeaderboardTableFooter from './LeaderboardTableFooter';
-import LeaderboardTableBody from './LeaderboardTableBody';
+import { loadLeaderBoardAction } from '../../store';
+import LeaderBoardTable from './LeaderboardTable';
+import LeaderboardSearch from './LeaderboardSearch';
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 950,
-  },
-});
+function LeaderBoards(props) {
+  const [options, setOptions] = useState({
+    page: 0,
+    limit: 15,
+    bracket: '2v2',
+    factions: ['horde', 'alliance'],
+    classes: [
+      'death knight',
+      'demon hunter',
+      'druid',
+      'hunter',
+      'mage',
+      'monk',
+      'paladin',
+      'priest',
+      'rogue',
+      'shaman',
+      'warlock',
+      'warrior',
+    ],
+  });
 
-function Leaderboard({ bracket, count, entries, limit, page, onChangePage }) {
-  const classes = useStyles();
+  const dispatch = useDispatch();
+
+  const getLeaderBoard = useCallback(
+    (o) => {
+      dispatch(loadLeaderBoardAction(o));
+    },
+    [dispatch],
+  );
+  const leaderBoard = useSelector((state) => state.leaderBoard);
+  useEffect(() => {
+    options.bracket = '2v2';
+    getLeaderBoard(options);
+  }, [options, getLeaderBoard]);
+
+  function handleChangePage(event, page) {
+    setOptions({ ...options, page });
+  }
+
+  function handleChange(event, newValue) {
+    setOptions({ ...options, bracket: props.match.params.bracket });
+    props.history.push(`/pvp/leaderboards/${newValue}`);
+  }
+  function handleSearchChange(value) {
+    console.log('value', value.items);
+    setOptions({ ...options, [value.name]: value.items });
+  }
+
   return (
-    <TableContainer component={Paper}>
-      <Table size="small" className={classes.table} aria-label="simple table">
-        <LeaderboardTableHeader />
-        <LeaderboardTableBody entries={entries} bracket={bracket} />
-        <LeaderboardTableFooter
-          rowsPerPageOptions={[5, 10, 15]}
-          count={count}
-          colSpan={3}
-          rowsPerPage={limit}
-          onChangePage={onChangePage}
-          page={page}
-        />
-      </Table>
-    </TableContainer>
+    <>
+      <div position="static" color="default">
+        <div
+          value={options.bracket}
+          indicatorColor="primary"
+          onChange={handleChange}
+          textColor="primary"
+          variant="fullWidth"
+          aria-label="full width tabs example"
+        >
+          <div id="2v2" label="2v2" value="2v2"></div>
+          <div id="3v3" label="3v3" value="3v3"></div>
+          <div id="RBG" label="RBG" value="rbg"></div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            <LeaderboardSearch
+              onChange={handleSearchChange}
+              selectedClasses={options.classes}
+              selectedFractions={options.factions}
+            />
+          </div>
+          <div>
+            {leaderBoard.loading || !leaderBoard.data.entries ? (
+              'loading'
+            ) : (
+              <LeaderBoardTable
+                onChangePage={handleChangePage}
+                count={leaderBoard.data.total || 0}
+                bracket={options.bracket}
+                page={options.page}
+                limit={options.limit}
+                entries={leaderBoard.data.entries}
+              />
+            )}
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
-export default Leaderboard;
+export default withRouter(LeaderBoards);

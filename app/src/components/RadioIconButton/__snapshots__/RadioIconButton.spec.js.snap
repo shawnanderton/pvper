@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioIconButton should render correctly 1`] = `
+<button
+  className="radio-icon-button "
+  onClick={[Function]}
+>
+  <button
+    aria-describedby={null}
+    className="MuiButtonBase-root"
+    disabled={false}
+    onBlur={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseOver={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    title=""
+    type="button"
+  >
+    <img
+      alt=""
+      style={
+        Object {
+          "height": 24,
+          "width": 24,
+        }
+      }
+    />
+    <span
+      className="MuiTouchRipple-root"
+    />
+  </button>
+</button>
+`;

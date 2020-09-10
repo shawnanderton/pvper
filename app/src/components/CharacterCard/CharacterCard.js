@@ -1,6 +1,5 @@
 import React from 'react';
 import CharacterDetail from './CharacterDetail';
-import { Grid } from '@material-ui/core';
 
 import Icon from '../Icon';
 

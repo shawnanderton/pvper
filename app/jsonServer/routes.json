@@ -1,0 +1,6 @@
+{
+  "/api/*": "/$1",
+  "/leaderboards/us/29/:bracket?_start=0&limit=15&classes=death_knight-demon_hunter-druid-hunter-mage-monk-paladin-priest-rogue-shaman-warlock-warrior&factions=horde-alliance": "/leaderboard_2v2",
+  "/leaderboards/us/29/3v3?_start=0&limit=15": "/leaderboard_3v3",
+  "/leaderboards/us/29/rbg?_start=0&limit=15": "/leaderboard_rbg"
+}

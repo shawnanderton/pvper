@@ -4,10 +4,11 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import App from './App';
+import App from './components/Core/App';
 import * as serviceWorker from './serviceWorker';
 import app, { blizzardSaga } from './store';
-import { createMuiTheme, ThemeProvider, CssBaseline } from '@material-ui/core';
+
+import './styles.scss';
 
 // create and configure reduxer middleware ( saga is a middleware )
 const sagaMiddleware = createSagaMiddleware();
@@ -20,20 +21,12 @@ const store = createStore(
 
 sagaMiddleware.run(blizzardSaga);
 
-const theme = createMuiTheme({
-  palette: {
-    type: 'dark', // Switching the dark mode on is a single property value change.
-  },
-});
 
 ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </ThemeProvider>
   </Provider>,
 
   document.getElementById('root'),

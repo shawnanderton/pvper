@@ -1,16 +1,15 @@
 import React from 'react';
-import { TableHead, TableRow, TableCell } from '@material-ui/core';
 
 function LeaderboardTableHeader() {
   return (
-    <TableHead>
-      <TableRow>
-        <TableCell size="small">Rank</TableCell>
-        <TableCell size="small">Name</TableCell>
-        <TableCell size="small">wins/lost</TableCell>
-        <TableCell size="small">Rating</TableCell>
-      </TableRow>
-    </TableHead>
+    <thead>
+      <tr>
+        <th size="small">Rank</th>
+        <th size="small">Name</th>
+        <th size="small">wins/lost</th>
+        <th size="small">Rating</th>
+      </tr>
+    </thead>
   );
 }
 

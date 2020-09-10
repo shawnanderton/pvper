@@ -1,13 +1,12 @@
 import React from 'react';
-import { TableFooter, TableRow, TablePagination } from '@material-ui/core';
 
 function LeaderboardTableFooter(props) {
   return (
-    <TableFooter>
-      <TableRow>
-        <TablePagination {...props} />
-      </TableRow>
-    </TableFooter>
+    <footer>
+      <div>
+        {/* <TablePagination {...props} /> */}
+      </div>
+    </footer>
   );
 }
 

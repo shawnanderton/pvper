@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tooltip from '@material-ui/core/Tooltip';
-import ButtonBase from '@material-ui/core/ButtonBase';
 
 import './icon.scss';
 import images from './images';
@@ -14,15 +12,13 @@ function Icon({ name, size }) {
   };
 
   return (
-    <Tooltip title={name} placement="bottom">
-      <ButtonBase>
+      <button>
         <img
           src={images[`${name}`]}
           style={styles}
           alt={name}
         />
-      </ButtonBase>
-    </Tooltip>
+      </button>
   );
 }
 

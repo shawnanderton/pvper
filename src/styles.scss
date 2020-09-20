@@ -1,1 +1,82 @@
-/* You can add global styles to this file, and also import other style files */
+@charset "utf-8";
+// Set your brand colors
+$purple: #8A4D76;
+$pink: #FA7C91;
+$brown: #757763;
+$beige-light: #D0D1CD;
+$beige-lighter: #EFF0EB;
+// Update Bulma's global variables
+$grey-dark: $brown;
+$grey-light: $beige-light;
+$primary: $purple;
+$link: $beige-light;
+// Update some of Bulma's component variables
+$body-background-color: black;
+$body-color: $beige-lighter;
+
+@import "bulma/bulma.sass";
+
+$color-horde: #e02929;
+$color-alliance: #69f;
+
+%brand {
+  font-size: 2rem;
+}
+
+.color-deathknight {
+  color: #c41f3b;
+}
+.color-demonhunter {
+  color: #a330c9;
+}
+.color-druid {
+  color: #ff7d0a;
+}
+.color-hunter {
+  color: #abd473;
+}
+.color-mage {
+  color: #69ccf0;
+}
+.color-monk {
+  color: #00ff96;
+}
+.color-paladin {
+  color: #f58cba;
+}
+.color-priest {
+  color: #ffffff;
+}
+.color-rogue {
+  color: #fff569;
+}
+.color-shaman {
+  color: #0070de;
+}
+.color-warlock {
+  color: #9482c9;
+}
+.color-warrior {
+  color: #c79c6e;
+}
+
+header {
+  font-weight: bold;
+  font-family: Arial;
+  span {
+    letter-spacing: 0px;
+    &.brand-red {
+      @extend %brand;
+      color: $color-horde;
+    }
+    &.brand-blue {
+      @extend %brand;
+      color: $color-alliance;
+    }
+
+    &.brand-white {
+      @extend %brand;
+      color: white;
+    }
+  }
+}

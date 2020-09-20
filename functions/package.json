@@ -1,0 +1,35 @@
+{
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prestart": "npm run build",
+    "start": "func start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "jest": "^26.4.2",
+    "tedis": "^0.1.12"
+  },
+  "devDependencies": {
+    "@azure/functions": "^1.0.2-beta2",
+    "@types/jest": "^26.0.14",
+    "ts-jest": "^26.3.0",
+    "typescript": "^3.3.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": [
+      "./**/*.test.ts"
+    ]
+  }
+}

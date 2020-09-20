@@ -1,10 +1,10 @@
 @charset "utf-8";
 // Set your brand colors
-$purple: #8A4D76;
-$pink: #FA7C91;
+$purple: #8a4d76;
+$pink: #fa7c91;
 $brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
+$beige-light: #d0d1cd;
+$beige-lighter: #eff0eb;
 // Update Bulma's global variables
 $grey-dark: $brown;
 $grey-light: $beige-light;
@@ -23,6 +23,14 @@ $color-alliance: #69f;
   font-size: 2rem;
 }
 
+
+.progress.is-pvp-rating::-webkit-progress-bar {
+  background-color: $danger;
+}
+
+.progress.is-pvp-rating::-webkit-progress-value {
+  background-color: $success;
+}
 .color-deathknight {
   color: #c41f3b;
 }

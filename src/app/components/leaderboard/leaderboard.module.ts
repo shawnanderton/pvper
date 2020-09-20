@@ -4,18 +4,21 @@ import { LeaderboardGridComponent } from './leaderboard-grid/leaderboard-grid.co
 import { AppRoutingModule } from './../../app-routing.module';
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { SharedModule } from '../shared/shared.module';
+
 import { LeaderboardComponent } from './leaderboard.component';
 
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, SharedModule],
   exports: [RouterModule, LeaderboardComponent],
   declarations: [
     LeaderboardComponent,
     LeaderboardGridComponent,
     LeaderboardGridHeaderComponent,
-    LeaderboardGridBodyComponent
+    LeaderboardGridBodyComponent,
   ],
 })
 export class LeaderboardModule {}

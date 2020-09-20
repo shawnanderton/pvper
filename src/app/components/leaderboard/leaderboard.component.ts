@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'pvper-leaderboard',
   template: `
     <section class="section">
-      <rating-progress-bar></rating-progress-bar>
+      <rating-progress-bar wins="120" losses="100"></rating-progress-bar>
       <h1 class="title">Pvp Leaderboard</h1>
       <leaderboard-grid [entries]="entries"></leaderboard-grid>
     </section>

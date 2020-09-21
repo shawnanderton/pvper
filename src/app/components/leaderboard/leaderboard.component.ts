@@ -88,6 +88,10 @@ export class LeaderboardComponent implements OnInit {
         id: 10,
         name: 'Blood Elf',
       },
+      guild: {
+        id: 74195425,
+        name: 'dog squad',
+      },
       id: 'us-baelgun-Genji',
       _rid: '2GIfAJhI4swDAAAAAAAAAA==',
       _self: 'dbs/2GIfAA==/colls/2GIfAJhI4sw=/docs/2GIfAJhI4swDAAAAAAAAAA==/',

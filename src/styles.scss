@@ -29,6 +29,20 @@ $color-alliance: #1a2027 !important;
   font-size: 2rem;
 }
 
+.media-content.character-name {
+  flex-grow: 0;
+  padding-right: 1em;
+}
+
+.media-content.character-info {
+  flex-grow: 0;
+  padding-left: 1em;
+}
+
+.has-right-border {
+  border-right: solid 1px whitesmoke;
+}
+
 .progress.is-pvp-rating::-webkit-progress-bar {
   background-color: $danger;
 }

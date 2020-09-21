@@ -14,10 +14,16 @@ import { Component, Input, OnInit } from '@angular/core';
         [name]="player.name"
         [characterClass]="player.characterClass.name"
         [race]="player.race.name"
+        [title]="player.title"
         [faction]="player.faction"
+        [itemLevel]="player.itemLevel"
+        [level]="player.level"
+        [spec]="player?.spec.name"
+        [guild]="player?.guild.name"
+        [realm]="player?.realm.name"
       ></pvper-character-card>
     </td>
-    <td>
+    <td [style.minWidth.px]="300">
       <rating-progress-bar
         [wins]="player.bracket2v2.won"
         [losses]="player.bracket2v2.lost"

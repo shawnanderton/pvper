@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
   selector: 'pvper-leaderboard',
   template: `
     <section class="section">
-      <rating-progress-bar wins="120" losses="100"></rating-progress-bar>
       <h1 class="title">Pvp Leaderboard</h1>
       <leaderboard-grid [entries]="entries"></leaderboard-grid>
     </section>
@@ -21,7 +20,7 @@ export class LeaderboardComponent implements OnInit {
         id: 76,
         name: 'sargeras',
       },
-      '2v2': {
+      bracket2v2: {
         rank: 1,
         rating: 3018,
         played: 660,
@@ -64,7 +63,7 @@ export class LeaderboardComponent implements OnInit {
         id: 1190,
         name: 'baelgun',
       },
-      '2v2': {
+      bracket2v2: {
         rank: 2,
         rating: 2853,
         played: 305,
@@ -103,7 +102,7 @@ export class LeaderboardComponent implements OnInit {
         id: 59,
         name: 'malganis',
       },
-      '2v2': {
+      bracket2v2: {
         rank: 3,
         rating: 2843,
         played: 352,

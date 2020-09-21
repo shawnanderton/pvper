@@ -5,7 +5,9 @@ import { Component, Input, OnInit } from '@angular/core';
   selector: 'leaderboard-grid',
   styles: [],
   template: `
-    <table class="table is-striped is-fullwidth">
+    <table
+      class="table is-striped is-fullwidth"
+    >
       <thead leaderboardHeader></thead>
       <tbody leaderboardBody [players]="entries"></tbody>
     </table>

@@ -2,15 +2,20 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'tbody[leaderboardBody]',
-  template: ` <tr *ngFor="let player of players">
+  template: ` <tr
+    class="faction-{{ player.faction.toLowerCase() }}"
+    *ngFor="let player of players"
+  >
     <td class="has-text-centered is-uppercase has-text-weight-bold">
       {{ player.bracket2v2.rank }}
     </td>
     <td>
-      {{ player.name }}
-      <pvper-image-icon
-        imagePath="/assets/images/icon-mage.png"
-      ></pvper-image-icon>
+      <pvper-character-card
+        [name]="player.name"
+        [characterClass]="player.characterClass.name"
+        [race]="player.race.name"
+        [faction]="player.faction"
+      ></pvper-character-card>
     </td>
     <td>
       <rating-progress-bar

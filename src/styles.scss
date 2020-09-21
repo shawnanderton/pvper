@@ -14,15 +14,20 @@ $link: $beige-light;
 $body-background-color: black;
 $body-color: $beige-lighter;
 
+$table-background-color: #353535;
+$table-color: #ffffff;
+$table-striped-row-even-background-color: #2b2b2b;
+$table-cell-border: 2px solid #1a1716;
+$table-head-cell-color: #ffffff;
+
 @import "bulma/bulma.sass";
 
-$color-horde: #e02929;
-$color-alliance: #69f;
+$color-horde: #2a1a1a !important;
+$color-alliance: #1a2027 !important;
 
 %brand {
   font-size: 2rem;
 }
-
 
 .progress.is-pvp-rating::-webkit-progress-bar {
   background-color: $danger;
@@ -66,6 +71,22 @@ $color-alliance: #69f;
 }
 .color-warrior {
   color: #c79c6e;
+}
+
+.has-background-horde-color {
+  background-color: $color-horde;
+}
+
+.has-background-alliance-color {
+  background-color: $color-alliance;
+}
+
+tr.faction-horde:hover {
+  background-color: $color-horde;
+}
+
+tr.faction-alliance:hover {
+  background-color: $color-alliance;
 }
 
 header {

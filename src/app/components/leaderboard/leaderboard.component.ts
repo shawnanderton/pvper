@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <section class="section">
       <h1 class="title">Pvp Leaderboard</h1>
+      <pvper-tabs></pvper-tabs>
       <leaderboard-grid [entries]="entries"></leaderboard-grid>
     </section>
   `,

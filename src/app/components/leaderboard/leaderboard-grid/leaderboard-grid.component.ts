@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styles: [],
   template: `
     <table
-      class="table is-striped is-fullwidth"
+      class="table is-striped is-bordered is-primary is-fullwidth"
     >
       <thead leaderboardHeader></thead>
       <tbody leaderboardBody [players]="entries"></tbody>

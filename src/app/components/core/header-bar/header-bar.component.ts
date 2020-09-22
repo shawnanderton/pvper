@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'pvper-header-bar',
   template: `
      <header>
-      <nav class="navbar has-background-black is-black">
+      <nav class="navbar is-primary">
       <pvper-header-bar-brand></pvper-header-bar-brand>
       </nav>
     </header>

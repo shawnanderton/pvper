@@ -1,29 +1,72 @@
 @charset "utf-8";
-// Set your brand colors
-$purple: #8a4d76;
-$pink: #fa7c91;
-$brown: #757763;
-$beige-light: #d0d1cd;
-$beige-lighter: #eff0eb;
-// Update Bulma's global variables
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: $purple;
-$link: $beige-light;
-// Update some of Bulma's component variables
-$body-background-color: black;
-$body-color: $beige-lighter;
 
-$table-background-color: #353535;
-$table-color: #ffffff;
-$table-striped-row-even-background-color: #2b2b2b;
-$table-cell-border: 2px solid #1a1716;
-$table-head-cell-color: #ffffff;
+$bg: #111;
+$fg: #f2f3ef;
+$dracula-selected: #44475a;
+$dracula-comment: #6272a4;
+$dracula-cyan: #8be9fd;
+$dracula-green: #50fa7b;
+$dracula-orange: #ffb86c;
+$dracula-pink: #91918d;
+$dracula-red: #ff5555;
+$dracula-yellow: #f1fa8c;
+
+$link: lighten($bg, 10%);
+
+// Update Bulma's global variables
+// read more: https://bulma.io/documentation/customize/variables/
+$primary: lighten($bg, 25%);
+
+$link-hover: darken($link, 25%);
+$link-hover-border: lighten($link, 5%);
+$link-focus: darken($link, 25%);
+$link-focus-border: lighten($link, 25%);
+$link-active: darken($link, 25%);
+$link-active-border: lighten($link, 55%);
+
+$border: lighten($bg, 10%);
+
+$info: $dracula-cyan;
+$success: $dracula-green;
+$warning: $dracula-yellow;
+$danger: $dracula-red;
+$dark: $dracula-selected;
+$grey: $fg;
+
+$text: $fg;
+$text-light: lighten($fg, 5%);
+$text-strong: darken($fg, 5%);
+
+$background: $bg;
+
+$green-invert: $bg;
+$success-invert: $bg;
+
+// Update some of Bulma's component variables
+$title-color: $fg;
+$subtitle-color: $fg;
+$subtitle-strong-color: darken($fg, 5%);
+
+$body-background-color: $bg;
+$footer-background-color: $bg;
+
+$code-background: $dracula-selected;
+$label-color: $fg;
+$card-color: $bg;
+
+$table-background-color: lighten($bg, 10%);
+$table-color: $fg;
+$table-striped-row-even-background-color: lighten($bg, 5%);
+$table-cell-border: $bg;
+$table-head-cell-color: $fg;
+
+$color-dark-horde: #2a1a1a !important;
+$color-dark-alliance: #1a2027 !important;
+
+$color-light-horde: #e02929 !important;
+$color-light-alliance: #69f !important;
 
 @import "bulma/bulma.sass";
-
-$color-horde: #2a1a1a !important;
-$color-alliance: #1a2027 !important;
 
 %brand {
   font-size: 2rem;
@@ -88,19 +131,19 @@ $color-alliance: #1a2027 !important;
 }
 
 .has-background-horde-color {
-  background-color: $color-horde;
+  background-color: $color-dark-horde;
 }
 
 .has-background-alliance-color {
-  background-color: $color-alliance;
+  background-color: $color-dark-alliance;
 }
 
 tr.faction-horde:hover {
-  background-color: $color-horde;
+  background-color: $color-dark-horde;
 }
 
 tr.faction-alliance:hover {
-  background-color: $color-alliance;
+  background-color: $color-dark-alliance;
 }
 
 header {
@@ -110,11 +153,11 @@ header {
     letter-spacing: 0px;
     &.brand-red {
       @extend %brand;
-      color: $color-horde;
+      color: $color-light-horde;
     }
     &.brand-blue {
       @extend %brand;
-      color: $color-alliance;
+      color: $color-light-alliance;
     }
 
     &.brand-white {

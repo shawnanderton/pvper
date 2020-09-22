@@ -18,6 +18,7 @@ import { TabsComponent } from './tabs/tabs.component';
     RatingProgressBarComponent,
     ImageIconComponent,
     CharacterCardComponent,
+    TabsComponent,
   ],
   imports: [CommonModule],
 })

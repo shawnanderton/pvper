@@ -7,7 +7,7 @@
     "watch": "tsc -w",
     "prestart": "npm run build",
     "start": "func start",
-    "test": "jest"
+    "test": ""
   },
   "dependencies": {
     "axios": "^0.20.0",
@@ -19,17 +19,5 @@
     "@types/jest": "^26.0.14",
     "ts-jest": "^26.3.0",
     "typescript": "^3.3.3"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "js"
-    ],
-    "transform": {
-      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testMatch": [
-      "./**/*.test.ts"
-    ]
   }
 }

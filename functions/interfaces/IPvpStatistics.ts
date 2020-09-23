@@ -1,4 +1,4 @@
-interface IPvpStatistics {
+export interface IPvpStatistics {
   name: string;
   played: number;
   won: number;

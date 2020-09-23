@@ -1,8 +1,7 @@
 import { IEntity } from './IEntity';
+import { IKey } from './IKey';
 
-interface IKey {
-  href: string;
-}
+
 export interface IPvpLeaderboard {
   entries: IPvpLeaderboardEntry[];
   season: ISeason;
@@ -17,7 +16,7 @@ interface IBracket extends IEntity {
   type: string;
 }
 
-interface IPvpLeaderboardEntry {
+export interface IPvpLeaderboardEntry {
   character: ICharacter;
   faction: IFaction;
   rank: number;
@@ -27,7 +26,6 @@ interface IPvpLeaderboardEntry {
 }
 
 interface ICharacter extends IEntity {
-  id: number;
   name: string;
   realm: IRealm;
 }

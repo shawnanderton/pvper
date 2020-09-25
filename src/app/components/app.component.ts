@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
       <pvper-header-bar></pvper-header-bar>
       <div class="section columns">
         <main class="column">
-          <pvper-leaderboard></pvper-leaderboard>
+          <pvper-player></pvper-player>
+          <!-- //<pvper-leaderboard></pvper-leaderboard> -->
         </main>
       </div>
     </div>

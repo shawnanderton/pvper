@@ -29,7 +29,7 @@ import { Component, Input, OnInit } from '@angular/core';
         [losses]="player.bracket2v2.lost"
       ></rating-progress-bar>
     </td>
-    <td class="has-text-centered is-uppercase has-text-weight-bold">
+    <td class="has-text-centered is-uppercase has-text-weight-bold is-size-4">
       {{ player.bracket2v2.rating }}
     </td>
   </tr>`,

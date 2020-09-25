@@ -1,17 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { PvpBrackets } from '../../enums/pvp-brackets.enum';
 
 @Component({
   selector: 'pvper-leaderboard',
   template: `
     <section class="section">
       <h1 class="title">Pvp Leaderboard</h1>
-      <pvper-tabs></pvper-tabs>
+      <pvper-tabs
+        [active]="tabActive"
+        [tabs]="tabs"
+        (selected)="clicked($event)"
+      ></pvper-tabs>
       <leaderboard-grid [entries]="entries"></leaderboard-grid>
     </section>
   `,
 })
 export class LeaderboardComponent implements OnInit {
   constructor() {}
+  tabActive = PvpBrackets.ARENA_3v3;
+  tabs = [PvpBrackets.ARENA_2v2, PvpBrackets.ARENA_3v3, PvpBrackets.RGB];
+
+  clicked(tab: PvpBrackets) {
+    this.tabActive = tab;
+  }
 
   entries = [
     {

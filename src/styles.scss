@@ -15,7 +15,7 @@ $link: lighten($bg, 10%);
 
 // Update Bulma's global variables
 // read more: https://bulma.io/documentation/customize/variables/
-$primary: lighten($bg, 25%);
+$primary: #242424;
 
 $link-hover: darken($link, 25%);
 $link-hover-border: lighten($link, 5%);

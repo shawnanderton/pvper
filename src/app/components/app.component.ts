@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     <div>
       <pvper-header-bar></pvper-header-bar>
       <div class="section columns">
-        <main class="column">
+        <main class="column has-background-primary">
           <pvper-player></pvper-player>
           <!-- //<pvper-leaderboard></pvper-leaderboard> -->
         </main>

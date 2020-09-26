@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'pvper-player',
   template: `<section class="hero">
       <div class="columns has-background-alliance-color">
-        <div class="column is-one-third">
+        <div class="column is-half">
           <pvper-character-card
             [name]="player.name"
             [characterClass]="player.characterClass.name"
@@ -21,7 +21,7 @@ import { Component, OnInit } from '@angular/core';
         </div>
         <div class="column">
           <h2 class="has-text-centered">3v3 Arena</h2>
-          <div class="px-6">
+          <div class="px-2">
             <rating-progress-bar
               [wins]="110"
               [losses]="90"
@@ -33,7 +33,7 @@ import { Component, OnInit } from '@angular/core';
         </div>
         <div class="column">
           <h1 class="has-text-centered">2v2 Arena</h1>
-          <div class="px-6">
+          <div class="px-2">
             <rating-progress-bar
               [wins]="110"
               [losses]="90"
@@ -43,9 +43,9 @@ import { Component, OnInit } from '@angular/core';
             3210
           </div>
         </div>
-        <div class="column m-6">
+        <div class="column">
           <h2 class="has-text-centered">Rated Battlegrounds</h2>
-          <div class="px-6">
+          <div class="px-2">
             <rating-progress-bar
               [wins]="110"
               [losses]="90"

@@ -2,14 +2,13 @@
 
 $bg: #111;
 $fg: #f2f3ef;
-$dracula-selected: #44475a;
-$dracula-comment: #6272a4;
-$dracula-cyan: #8be9fd;
-$dracula-green: #50fa7b;
-$dracula-orange: #ffb86c;
-$dracula-pink: #91918d;
-$dracula-red: #ff5555;
-$dracula-yellow: #f1fa8c;
+$pvper-selected: #44475a;
+$pvper-comment: #6272a4;
+$pvper-cyan: #8be9fd;
+$pvper-green: #393;
+$pvper-orange: #ffb86c;
+$pvper-red: #a71a19;
+$pvper-yellow: #f1fa8c;
 
 $link: lighten($bg, 10%);
 
@@ -26,11 +25,11 @@ $link-active-border: lighten($link, 55%);
 
 $border: lighten($bg, 10%);
 
-$info: $dracula-cyan;
-$success: $dracula-green;
-$warning: $dracula-yellow;
-$danger: $dracula-red;
-$dark: $dracula-selected;
+$info: $pvper-cyan;
+$success: $pvper-green;
+$warning: $pvper-yellow;
+$danger: $pvper-red;
+$dark: $pvper-selected;
 $grey: $fg;
 
 $text: $fg;
@@ -50,7 +49,7 @@ $subtitle-strong-color: darken($fg, 5%);
 $body-background-color: $bg;
 $footer-background-color: $bg;
 
-$code-background: $dracula-selected;
+$code-background: $pvper-selected;
 $label-color: $fg;
 $card-color: $bg;
 
@@ -70,6 +69,12 @@ $color-light-alliance: #69f !important;
 
 %brand {
   font-size: 2rem;
+}
+
+.container .columns {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
 }
 
 .media-content.character-name {

@@ -57,7 +57,9 @@ import { Component, OnInit } from '@angular/core';
         </div>
       </div>
     </section>
-    <section class="section">Hello</section>`,
+    <section class="section">
+      <pvper-player-gear></pvper-player-gear>
+    </section>`,
 })
 export class PlayerComponent implements OnInit {
   player = {
